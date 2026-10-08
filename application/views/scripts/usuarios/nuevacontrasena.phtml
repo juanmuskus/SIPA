@@ -1,0 +1,30 @@
+
+<div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;">
+<h3 class=""> Cambio de Contraseña </h3>     
+<br>
+<div class="panel panel-default">  
+<div class="panel-heading"> Datos del Usuario</div>   
+<div class="panel-body">
+<form id="usu" method="post">
+    
+    <div class="row">
+     <div class="form-group">
+      <div class="col-lg-6"> 
+      <!-- Codigo Para encriptar -->
+      <label for="input" class="">Nueva Contraseña</label>           
+      <input type="password" class="form-control" value="" id="pas" name="pas"> 
+      </div>    
+      </div>    
+    </div> 
+     <br>
+</form> 
+</div>
+</div>    
+   <div class="row espacio">
+   <div class=" text-center">
+       <input type="hidden" id="id_usuario" value="<?php echo $this->usuarios[0]['id_usuario']; ?>">    
+    <input type="button" id="cambiar" value="Guardar"  class="btn btn-default"  />
+    <input type="button" value="Cancelar" class="btn btn-danger " />  
+   </div>          
+   </div>  
+</div>

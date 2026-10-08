@@ -1,0 +1,144 @@
+
+<!-- Evento del modal del css -->
+ <div class="modal">
+    <div class="ventana">
+   <img src="/img/Image.jpg">
+   <span class="cerrar" id="cerrar_modal">x</span>
+   <h1 class="text-center" id="si">Sistemas de Información de Prácticas Académicas</h1>
+    </div>
+</div>
+
+    <style  type="text/css">
+     
+   .modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,.7);
+    display:none;
+     }
+ 
+  .ventana{
+    width:400px;
+    position:absolute;
+    top:15%;
+    left:50%;
+    margin-left:-200px;
+      }
+
+   .ventana img{ 
+       width:100%;
+       border:1px solid #fff; 
+       
+       
+      } 
+      .ventana h1{
+       font-family:robotoblack;
+       font-size:22px;
+       background-color: #dff0d8;
+       color:#777; 
+       border:2px solid #fff; 
+       
+      }
+      
+   .ventana span{
+    color:#fff;
+    background-color:#000;
+    padding:.2em .5em .3em .5em;
+    font-family:Arial;
+    font-weight:bold;
+    border:2px solid #fff;
+    border-radius:50%;
+    position:absolute;
+    top:-15px;
+    right:-20px;
+    cursor:pointer;
+      } 
+    </style>
+    <script>
+     $(document).ready(function(){
+     $(".modal").fadeIn();
+     $(".cerrar").click(function(){
+     $(".modal").fadeOut(300);
+      });
+  });   
+    </script>  
+ <!-- Evento modal javascript -->
+ <!-- Evento modal javascript -->
+ 
+<div class="container" style="margin-top: 52px;">
+      <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+          <div class="list-group"><a href="#SoftPc" class="list-group-item" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" style="font-family:aleolight;font-size:16px;color:#000"><i class="fa fa-pencil-square" style="font-size:18px;color:#1d9d74" ></i> Gestor Prácticas<div style="margin-top:-2px;" class="pull-right"><i class="fa fa-sort-desc"></i></div></a>
+
+	<div class="collapse" id="SoftPc">
+		<div class="woll">
+			<div class="list-group ssilka">
+                        <a href="/practicas/agregarpractica" class="list-group-item" style="font-family:caviar_dreamsregular;font-size:14px;color:#333"><i class="fa fa-plus-circle" style="font-size:16px"></i> Agregar Práctica</a>
+                        <a href="/practicas/listarpractica" class="list-group-item" style="font-family:caviar_dreamsregular;font-size:14px;color:#333"><i class="fa fa-th-list" style="font-size:16px"></i> Listar Práctica </a>  
+			</div>
+		</div>
+	</div>
+
+  <!--	<a href="#WebDevelopment" class="list-group-item" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" style="font-family:aleolight;font-size:16px;color:#000"><i class="fa fa-check-square" style="font-size:18px;color:#1d9d74"></i> Solicitar Modificación de Prácticas <div style="margin-top:-2px;" class="pull-right"><i class="fa fa-sort-desc"></i></div></a>
+	<div class="collapse" id="WebDevelopment">
+		<div class="woll">
+			<div class="list-group ssilka">
+                        <a href="#" class="list-group-item" style="font-family:caviar_dreamsregular;font-size:14px;color:#333"><i class="fa fa-th-list" style="font-size:16px"></i> Listar </a>
+			</div>
+		</div>
+	</div>  -->
+   <!--	<a href="#ArchiveBooks" class="list-group-item" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" style="font-family:aleolight;font-size:16px;color:#000"><i class="fa fa-file-text-o" style="font-size:18px;color:#1d9d74"></i> Generar Reportes de Prácticas <div style="margin-top:-2px;" class="pull-right"><i class="fa fa-sort-desc"></i></div></a>
+	<div class="collapse" id="ArchiveBooks">
+		<div class="woll">
+			<div class="list-group ssilka">
+                        <a href="#" class="list-group-item" style="font-family:caviar_dreamsregular;font-size:14px;color:#333"><i class="fa fa-th-list" style="font-size:16px"></i> Listar </a>
+			</div>
+		</div>
+	</div>  -->
+</div>
+</div>    
+      
+            
+    <div class="col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;"> 
+    <h3 style="font-family:robotoblack;font-size:24px;color:#777">Bienvenidos  al Sistemas de Prácticas Académicas "Sipa"</h3> 
+    <br>
+    <div class="panel panel-success">  
+    <div class="panel-heading"><h4 class="lead text-center" style="font-family:robotoblack;font-size:22px;color:#777">Prácticas Académicas</h4></div>   
+    <div class="panel-body">
+    <div class="row">    
+      <div class="form-group">
+      <div class="col-lg-12 text-justify">    
+      <p class= "lead" style="font-family:aleolight;font-size:20px;color:#000">Son actividades académicas que utilizan como metodología de aprendizaje,
+      acciones que vinculan al estudiante con la realidad profesional y que le permiten
+      su participación en equipos de trabajo interdiciplinarios, vivencias en situaciones, 
+      empresariales, transculturales, autogestoras, de asistencia técnica e investigativa. 
+      </p>       
+      </div>    
+      </div> 
+    </div>  
+    </div>
+    </div>
+     <br>
+    <div class="panel panel-success">  
+    <div class="panel-heading"><h4 class="lead text-center" style="font-family:robotoblack;font-size:22px;color:#777">Información Requerida Para la Liquidación de La Práctica</h4></div>   
+    <div class="panel-body">
+    <div class="row">    
+      <div class="form-group">
+      <div class="col-lg-12 text-justify">    
+      <p class= "lead" style="font-family:aleolight;font-size:20px;color:#000">Cuando se ingrese la información de la práctica se debe definir,
+      si la práctica requiere transporte y viaticos tanto para el docente y el
+      auxilio económico para los estudiantes u otro tipo de recursos especiales, 
+      se debe registrar la información en el sistema de prácticas académicas(SIPA). 
+      </p>       
+      </div>    
+      </div> 
+    </div>  
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    </div>  

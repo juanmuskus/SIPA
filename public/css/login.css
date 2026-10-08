@@ -1,0 +1,60 @@
+
+             body{
+                background-color:  #F5F5F5;
+              /*  background-image: url(img/2.JPG);   Ubicación de la imagen */
+                background-position: center center; /* Nos aseguramos que la imagen de fondo este centrada vertical y horizontalmente en todo momento */
+                background-repeat: no-repeat;  /* La imagen de fondo no se repite*/
+                background-attachment: fixed;  /*La imagen de fondo está fija en el viewport, de modo que no se mueva cuando la altura del contenido supere la altura de la imagen */
+                background-color: snow;  /*La imagen de fondo se reescala cuando se cambia el ancho de ventana del navegador */
+                background-size:cover; /*Fijamos un color de fondo para que se muestre mientras se está cargando la imagen de fondo o si hay problemas para cargarla */ 
+               
+                
+             }
+             .panel-default{
+               
+              //   color: #000;
+               
+                 
+             }
+           
+             .panel-body{
+                 background-image: url();
+                 background-position: center center;
+                 background-repeat: no-repeat;
+                 background-size: 100% auto; /* fijar la imagen a la pantalla*/
+                 
+             }
+          
+             img{
+                 width: 100%;
+             }
+         
+             input[type="text"]:focus:invalid{
+              border: 1px solid red;
+              box-shadow: 0 0 5px red;
+              background: #F5F5F5;
+          }
+          input[type="password"]:focus:invalid{
+              border: 1px solid red;
+              box-shadow: 0 0 5px red;
+              background: #F5F5F5;
+              
+          }
+          input[type="email"]:focus:invalid{
+              border: 1px solid red;
+              box-shadow: 0 0 5px red;
+              background: #a6e1ec;
+          }
+          input[type="tel"]:focus:invalid{
+              border: 1px solid red;
+              box-shadow: 0 0 5px red;
+              background: #a6e1ec;
+              
+          }
+             input[type="datetime"]:focus:invalid{
+              border: 1px solid red;
+              box-shadow: 0 0 5px red;
+              background: #a6e1ec;
+              
+          }
+        

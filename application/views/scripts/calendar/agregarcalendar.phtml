@@ -1,0 +1,83 @@
+<br>
+<a href="/inicio/admin">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;">
+        <span class=""></span> Inicio</button></a>
+<br>
+<div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;">
+<h3 class="text-center" style="font-family:robotoblack;font-size:25px;color:#777"> Agregar Calendario Académico</h3>     
+<br>
+<div class="panel panel-success">  
+<div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos del Calendario Académico</div>   
+<div class="panel-body">  
+<form id="cale">  
+ <div class="row"> 
+     <br>
+      <div class="col-xs-6 col-md-6 col-lg-6"> 
+      <div class="form-group">
+      <label style="font-family:aleolight;font-size:14px;color:#000">Año</label> 
+      <select class="form-control" id="annio" name="annio" style="cursor:pointer;">
+       <option value="0">Seleccione una Opcion...</option>   
+       <?php foreach ($this->annio as $annio) {?>  
+      <option  value="<?php echo $annio['id_annio'];?>"><?php echo $annio['annio'];?></option>
+      <?php }?>
+      </select>
+      </div>    
+      </div>
+      
+      <div class="col-xs-6 col-md-6 col-lg-6"> 
+      <div class="form-group">
+      <label style="font-family:aleolight;font-size:14px;color:#000">Periodo</label>    
+      <select class="form-control" id="per" name="per" style="cursor:pointer;">
+      <option value="0">Seleccione una Opcion...</option>    
+      <?php foreach ($this->periodo as $periodo) {?>  
+      <option  value="<?php echo $periodo['id_periodo'];?>"><?php echo $periodo['periodo'];?></option>
+      <?php }?>
+      </select>
+      </div>    
+      </div> 
+ </div> 
+    <br>
+<!-- <div class="row"> 
+  <div class="col-xs-6 col-md-6 col-lg-6">
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000"> Estado del calendario</label>
+        <select class="form-control" id="ca" name="ca"  style="cursor:pointer;">
+            <option value="1">Abierto</option>
+            <option value="0">Cerrado</option>
+           
+        </select>       
+        </div>   
+     
+ </div> -->
+    <div class="row"> 
+     <br>
+      <div class="form-group">
+      <div class="col-xs-6 col-md-6 col-lg-6">    
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Fecha Inicio</label>           
+      <div class='input-group date' id='divMiCalendario' style="cursor:pointer;">
+      <input type='text' id="ini" name="ini" placeholder="DD/MM/AAAA" class="form-control calendario"  />
+      <div class="input-group-addon"><span id="calend"></span>
+      </div>    
+      </div> 
+      </div>
+      <div class="col-xs-6 col-md-6 col-lg-6">    
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Fecha Final</label>           
+      <div class='input-group date' id='divMiCalendario1' style="cursor:pointer;">
+      <input type='text' id="fin" name="fin" placeholder="DD/MM/AAAA" class="form-control calendario"  />
+      <div class="input-group-addon"><span id="calend"></span>
+      </div>    
+      </div> 
+      </div>    
+      </div> 
+     
+ </div> 
+</form>   
+</div>
+</div>    
+   <div class="row espacio">
+   <div class=" text-center">
+   <input type="button" value="Guardar" id="agregar" class="btn btn-default" style="font-family:aleobold;font-size:18px;color:#1d9d74" />
+   </div>          
+   </div>  
+</div>
+
+

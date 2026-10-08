@@ -1,0 +1,34 @@
+<br>
+<a href="/inicio/admin">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;">
+        <span class=""></span> Inicio</button></a>
+<br>
+<div class="row col-sm-4 col-md-6 col-lg-9" style="margin-top: 10px;">
+    <h3 class="text-center" style="font-family:robotoblack;font-size:25px;color:#777">Listar Recursos Especiales</h3>
+    <br>
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+              
+                <th style="font-family:aleolight;font-size:14px;color:#000">Nombre del Recurso Especial</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Acciones</th>
+                
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+            
+                <th style="font-family:aleolight;font-size:14px;color:#000">Nombre del Recurso Especial</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Acciones</th>
+            </tr>
+        </tfoot>
+        <tbody>
+           <?php foreach ($this->recursos as $recursos) {?> 
+            <tr>
+                <td><?php echo $recursos ['nombre'];?></td>
+                <td><a href="/recurespeciales/editarrecurespeciales/id/<?php echo $recursos ['id_recursos'];?> "><i class="fa fa-pencil-square-o" style="font-size:18px;color:#337ab7;cursor:pointer;"></i></a>&nbsp;<a class="eliminar_recursos" data-recursos="<?php echo $recursos['id_recursos'];?>" href="#"><i class="fa fa-trash" style="font-size:18px;color:#d9534f;cursor:pointer;"></i></a></td>
+            </tr> 
+            <?php }?>
+        </tbody>
+    </table>    
+        </div> 

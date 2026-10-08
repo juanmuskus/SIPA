@@ -1,0 +1,50 @@
+
+<div class="row col-lg-12" style="margin-top: 10px;">
+    <h3 style="font-family:robotoblack;font-size:23px;color:#777" class="text-center">Programación de las Prácticas</h3>
+    <h4 style="font-family:aleolight;font-size:16px;color:#000" class="text-center"> Información detallada de las programaciones</h4> 
+    <br>
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Ruta</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Facha salida</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Fecha llegada</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">pasajeros</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Codigo Práctica</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Docente</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Telefono</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Codigo Programación</th>
+               
+                
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Ruta</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Facha salida</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Fecha llegada</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">pasajeros</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Codigo Práctica</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Docente</th>  
+                <th style="font-family:aleolight;font-size:14px;color:#000">Telefono</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Codigo Programación</th>
+               
+            </tr>
+        </tfoot>
+        <tbody>
+           <?php foreach ($this->programacion as $programacion) {?> 
+            <tr>
+                <td><?php echo $programacion ['ruta']['ruta'];?></td>
+                <td><?php echo $programacion ['fecha_salida']->format('Y-m-d h:i:s');?></td>
+                <td><?php echo ($programacion['fecha_llegada']== null)? "ND" : $programacion['fecha_llegada']->format('Y-m-d h:i:s');?></td>
+                <td><?php echo $programacion ['cod_practica']['num_estudiantes'];?></td>
+                <td><?php echo $programacion ['cod_practica']['cod_practica'];?></td>
+                <td><?php echo $this->docentes[0]['ape'].' '.$this->docentes[0]['nom'];?></td>  
+                <td><?php echo $this->docentes[0]['tel'];?></td>  
+                 <td><?php echo $programacion ['codigo_prog'];?></td>
+              <!--  <td><a href="/liquiconductor/editarliquiconductor/id/<?php echo $programacion ['codigo_prog'];?> "><i class="fa fa-pencil-square" style="font-size:18px;color:#5cb85c;cursor:pointer;"></i></a></td> -->
+            </tr> 
+            <?php }?>
+        </tbody>
+    </table>    
+        </div> 

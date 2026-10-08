@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sipa</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/font-face.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="" rel="stylesheet">
+    <!--Logo en el navegador -->
+    <link rel="shortcut icon" href="/img/uni.png">
+     <!--Para Agregar Css -->
+     <?php echo $this->headLink(); ?>
+     <script src="/bootstrap/js/jquery.min.js"></script>
+     <script src="/bootstrap/js/bootstrap.min.js"></script>
+     <?php echo $this->headScript(); ?>
+
+</head>
+
+<body>
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style="background-color:#dff0d8" role="navigation">
+  <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span> 
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="/img/uni.png" alt="Sipa"  height="50" width="40" class="img-rounded">
+                <span style="font-style:normal;font-family:robotoblack;font-size:25px;background-color:#dff0d8;" class="text-muted">Sistemas Prácticas Académicas Unicordoba</span><a class="navbar-brand" href="/inicio/departamento" style="padding:0px;"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            
+            <!-- /.navbar-collapse -->
+            
+      <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+<!--      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family:aleolight;font-size:16px;color:#000">
+          Prácticas <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/practicas/agregarpractica" style="font-family:caviar_dreamsregular;font-size:14px;color:#333"><i class="fa fa-plus-circle" aria-hidden="true" style="font-size:16px;"> </i> Agregar</a></li>
+          <li><a href="/practicas/listarpractica" style="font-family:caviar_dreamsregular;font-size:14px;color:#333"><i class="fa fa-th-list"  aria-hidden="true" style="font-size:16px;"> </i> Listar</a></li>
+        </ul>
+      </li> -->
+
+      <li><a href="/inicio/departamento" style="font-family:aleolight;font-size:14px;color:#1d9d74;color:#000"> <i class="fa fa-home" aria-hidden="true" style="font-size:20px;color:#1d9d74"></i> Inicio</a></li>
+      
+      <li><a href="/logout" style="font-family:aleolight;font-size:14px;color:#000"><i class="glyphicon glyphicon-user" style="font-size:18px;color:#1d9d74"></i> Salir</a></li>
+    </ul>          
+      </div>
+        </div>
+</nav>
+        <div class="container">
+        <form>
+        <div class="row">
+        <div class="col-xs-6 col-md-4">
+           
+        </div>
+        <div class="col-xs-6 col-md-4">
+         
+        </div>
+        </div>    
+        </form>
+        </div>
+
+   
+
+    <!-- Page Content -->
+    <div class="container">
+    <?php echo $this->layout()->content; ?>    
+    </div>
+    
+
+    <!-- jQuery -->
+    
+    
+   
+    
+    
+
+ 
+
+</body>
+
+</html>
+   

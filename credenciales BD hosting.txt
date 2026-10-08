@@ -1,0 +1,11 @@
+Bd: hmmunich5_practicas
+user: hmmunich5_userpracticas
+pass: Unicor@2026
+==========================
+Bd: hmmunich5_campus
+user: hmmunich5_usercampus
+pass: Unicor@2026
+===========================
+Bd: hmmunich5_campus
+user: hmmunich5_usercampus
+pass: Unicor@2026

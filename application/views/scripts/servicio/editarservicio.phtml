@@ -1,0 +1,63 @@
+<br>
+<a href="/servicio/listarservicio">
+<button type="button"  class="btn btn-default" style="font-family:aleolight;background-color:#dff0d8;font-size:16px;color:#000;">
+<span class=""></span> Listar Servicio</button></a>
+<br>
+<div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;">
+<h3 class="text-center" style="font-family:robotoblack;font-size:23px;color:#777"> Editar Servicio</h3>     
+<br>
+<div class="panel panel-success">  
+<div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos de los Servicios</div>   
+<div class="panel-body">
+  <form id="ser">
+    <div class="row">
+      <div class="col-lg-6">   
+      <div class="form-group">
+      <label for="input" class="">Tipo Servicio</label>           
+      <select class="form-control" data-tipo="<?php echo $this->servicios[0]['tipo'];?>" id="servi" name="servi" style="cursor:pointer;">
+      <?php foreach ($this->servicios as $servicios) {?>    
+      <option value="<?php echo $servicios['tipo'] ;?>"> <?php echo $servicios['tipo'];?></option>
+       <?php }?> 
+      </select>
+      </div>    
+      </div>
+      <div class="col-lg-6">     
+      <div class="form-group">
+      <label for="input" class="">Valor</label>           
+      <input type="text" class="form-control" value="<?php echo $this->servicios[0]['valor'];?>"  id="valo" name="valo"> 
+      </div>    
+      </div>   
+      </div>  
+       <br>
+      <div class="row"> 
+      <div class="col-lg-6">     
+      <div class="form-group">
+      <label for="input" class="">Codigo Programación</label> 
+      <select class="form-control" id="codi" name="codi" data-programacion="<?php echo $this->servicios[0]['codigo_prog']['codigo_prog'];?>" style="cursor:pointer;">
+      <?php foreach ($this->programacion as $programacion) {?>    
+      <option value="<?php echo $programacion['codigo_prog'] ;?>"> <?php echo $programacion['codigo_prog'];?></option>
+       <?php }?> 
+      </select>
+      </div>    
+      </div>
+      <div class="col-lg-6">    
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Observación</label>           
+  <!--    <input type="text" class="form-control" id="obser" name="obser" value="<?php echo $this->servicios[0]['observacion'];?>"> -->
+       <textarea class="form-control" id="obser" name="obser" rows="3"><?php echo $this->servicios[0]['observacion'];?></textarea>
+      </div>    
+      </div>    
+      </div> 
+    </form>
+  
+</div>
+</div>    
+   <div class="row">
+   <div class=" text-center">
+    <input type="hidden" id="cod_servicio" value="<?php echo $this->servicios[0]['cod_servicio'];?>">  
+    <input type="button" id="editar" value="Actualizar"  class="btn btn-default" style="font-family:aleobold;font-size:18px;color:#1d9d74" />
+ 
+     
+   </div>          
+   </div>  
+</div>

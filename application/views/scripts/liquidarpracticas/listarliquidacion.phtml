@@ -1,0 +1,72 @@
+<br> 
+<a href="/inicio/financiera">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;">
+        <span class=""></span> Inicio</button></a>
+<br>
+<div class="row  col-lg-12" style="margin-top: 10px;">
+    <h3 class="text-center" style="font-family:robotoblack;font-size:23px;color:#777">Listado de las liquidaciones de Práctica</h3>
+    <br>
+    <!--  -->
+    <div class="tabla_datos">
+    <?php foreach ($this->liquidarpractica as  $liquidarpractica){?>
+    <div class="panel panel-default item-tabla item-tabla-61">
+                      <div class="panel-body">  
+                      <table class="table">     
+                      <tr>
+                      <td colspan="2" style="text-align: right"> 
+                       <?php
+                       if(($liquidarpractica['estado'])== 'Tramite'){?>
+                         <a href="/liquidarpracticas/editarliquidacion/cod_practica/<?php echo $liquidarpractica['cod_practica']['cod_practica']; ?>"  data-id="44"  data-tipo="1" class="btn btn-info btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:15px;color:#000;">Pagar Práctica</a>      
+                         <?php } else { if(($liquidarpractica['estado'])== 'Cancelada la Práctica'){?>
+                              <a href="/liquidarpracticas/editarliquidacion/cod_practica/<?php echo $liquidarpractica['cod_practica']['cod_practica']; ?>"  data-id="44"  data-tipo="1" class="btn btn-info btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:15px;color:#000;">Cancelada la Práctica</a>
+                                  <?php } else {?>
+                                  <a href="#"  data-id="44"  data-tipo="1" class="btn btn-success btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:15px;color:#000;background-color:#dff0d8;"> Pagada</a>
+                                    <?php }?>    
+                                 <?php }?> 
+                       
+                      </td>
+                      </tr>  
+                          <tr>
+                              <td>Viatico docente</td>
+                              <td class="cod"><?php echo $liquidarpractica['viaticos']; ?></td>
+                          </tr>
+                          <tr>
+                              <td>Auxilio estudiante</td>
+                              <td class="cal"><?php echo $liquidarpractica['aux_estudiante'];?></td>
+                          </tr>
+                           <tr>
+                              <td>Transpote Especial</td>
+                              <td class="campo_o"><?php echo $liquidarpractica['transporte_especial'];?></td>
+                          </tr>
+                           <tr>
+                              <td>Total</td>
+                              <td class="campo_o"><?php echo $this->total_liquidacion;?></td>
+                          </tr>
+                           <tr>
+                              <td>Estado pago</td>
+                              <td class="campo_o"><?php echo $liquidarpractica['estado'];?></td>
+                          </tr>
+                           <tr>
+                              <td>Fecha pago</td>
+                              <td class="campo_o"><?php echo $liquidarpractica['fecha_pago']->format('Y-m-d');?></td>
+                          </tr>
+                          <tr>
+                              <td>Legalizado</td>
+                              <td class="campo_o"><?php echo $liquidarpractica['legalizado'];?></td>
+                          </tr>
+                          <tr>
+                              <td>Fecha_legalizado</td>
+                              <td class="campo_o"><?php echo $liquidarpractica['fecha_legalizado']->format('Y-m-d') ;?></td>
+                          </tr>
+                          <tr>
+                              <td>Codigo práctica</td>
+                              <td class="campo_o"><?php echo $liquidarpractica['cod_practica']['cod_practica'] ;?></td>
+                          </tr>
+                         </table>
+                        </div>
+                          
+                    </div>
+                   <?php }?>  
+ 
+</div>
+        </div> 

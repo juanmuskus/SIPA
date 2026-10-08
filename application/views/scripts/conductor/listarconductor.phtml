@@ -1,0 +1,41 @@
+<div class="row col-sm-4 col-md-6 col-lg-9" style="margin-top: 10px;">
+    <h3 class="text-center" style="font-family:robotoblack;font-size:23px;color:#777">Listar Los Conductores</h3>
+    <br>
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+              
+                <th style="font-family:aleolight;font-size:14px;color:#000">Nombres</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Apellidos</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Identificación</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Telefono</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Dirección</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Acciones</th>
+                
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+            
+                <th style="font-family:aleolight;font-size:14px;color:#000">Nombres</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Apellidos</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Identificación</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Telefono</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Dirección</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Acciones</th>
+            </tr>
+        </tfoot>
+        <tbody>
+           <?php foreach ($this->conductores as $conductores) {?> 
+            <tr>
+                <td><?php echo $conductores ['nombre'];?></td>
+                <td><?php echo $conductores ['apellido'];?></td>
+                <td><?php echo $conductores ['identificacion'];?></td>
+                <td><?php echo $conductores ['telefono'];?></td>
+                <td><?php echo $conductores ['direccion'];?></td>
+                <td><a href="/conductor/editarconductor/id/<?php echo $conductores ['id_conductor'];?> "><i class="fa fa-pencil-square-o" style="font-size:18px;color:#337ab7;cursor:pointer;"></i></a>&nbsp;<a class="eliminar_conductor" data-conductor="<?php echo $conductores['id_conductor'];?>" href="#"><i class="fa fa-trash" style="font-size:18px;color:#d9534f;cursor:pointer;"></i></a></td>
+            </tr> 
+            <?php }?>
+        </tbody>
+    </table>    
+        </div> 

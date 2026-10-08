@@ -1,0 +1,38 @@
+<div class="row col-sm-4 col-md-6 col-lg-9" style="margin-top: 10px;">
+    <h3 class="text-center" style="font-family:robotoblack;font-size:23px;color:#777">Listar Los Servicios</h3>
+    <br>
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+              
+                <th style="font-family:aleolight;font-size:14px;color:#000">Tipo de Servicio</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Valor</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Codigo Programación</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Observación</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Acciones</th>
+                
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+            
+                 <th style="font-family:aleolight;font-size:14px;color:#000">Tipo de Servicio</th>
+                 <th style="font-family:aleolight;font-size:14px;color:#000">Valor</th>
+                 <th style="font-family:aleolight;font-size:14px;color:#000">Codigo Programación</th>
+                 <th style="font-family:aleolight;font-size:14px;color:#000">Observación</th>
+                 <th style="font-family:aleolight;font-size:14px;color:#000">Acciones</th>
+            </tr>
+        </tfoot>
+        <tbody>
+           <?php foreach ($this->servicios as $servicios) {?> 
+            <tr>
+                <td><?php echo $servicios ['tipo'];?></td>
+                <td><?php echo $servicios ['valor'];?></td>
+                <td><?php echo $servicios ['codigo_prog']['codigo_prog'];?></td>
+                <td><?php echo $servicios ['observacion'];?></td>
+                <td><a href="/servicio/editarservicio/id/<?php echo $servicios ['cod_servicio'];?> "><i class="fa fa-pencil-square-o" style="font-size:18px;color:#337ab7;cursor:pointer;"></i></a>&nbsp;<a class="eliminar_servicio" data-servicio="<?php echo $servicios['cod_servicio'];?>" href="#"><i class="fa fa-trash" style="font-size:18px;color:#d9534f;cursor:pointer;"></i></a></td>
+            </tr> 
+            <?php }?>
+        </tbody>
+    </table>    
+        </div> 

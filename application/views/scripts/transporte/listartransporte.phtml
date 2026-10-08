@@ -1,0 +1,41 @@
+<div class="row col-sm-4 col-md-6 col-lg-9" style="margin-top: 10px;">
+    <h3 class="text-center" style="font-family:robotoblack;font-size:23px;color:#777">Listar Los Vehiculos</h3>
+    <br>
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+              
+                <th style="font-family:aleolight;font-size:14px;color:#000">Placa</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Descripción</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">tipo_vehiculo</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Estado Vehiculo</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Capacidad de Pasajeros</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Acciones</th>
+                
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+            
+                <th style="font-family:aleolight;font-size:14px;color:#000">Placa</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Descripción</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">tipo_vehiculo</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Estado Vehiculo</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Capacidad de Pasajeros</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Acciones</th>
+            </tr>
+        </tfoot>
+        <tbody>
+           <?php foreach ($this->transporte as $transporte) {?> 
+            <tr>
+                <td><?php echo $transporte ['placa'];?></td>
+                <td><?php echo $transporte ['descripcion'];?></td>
+                <td><?php echo $transporte ['tipo_vehiculo'];?></td>
+                <td><?php echo $transporte ['estado_vehiculo'];?></td>
+                <td><?php echo $transporte ['capacidad_pasajeros'];?></td>
+                <td><a href="/transporte/editartransporte/id/<?php echo $transporte['cod_transporte'];?> "><i class="fa fa-pencil-square-o" style="font-size:18px;color:#337ab7;cursor:pointer;"></i></a>&nbsp;<a class="eliminar_transporte" data-transporte="<?php echo $transporte['cod_transporte'];?>" href="#"><i class="fa fa-trash" style="font-size:18px;color:#d9534f;cursor:pointer;"></i></a></td>
+            </tr> 
+            <?php }?>
+        </tbody>
+    </table>    
+        </div> 

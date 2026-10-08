@@ -1,0 +1,59 @@
+<br>
+<a href="/rutas/listarruta">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;">
+        Atrás <span class=""></span></button></a>
+<br>
+<div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;">
+<h3 class="text-center" style="font-family:robotoblack;font-size:25px;color:#777"> Editar Ruta</h3>     
+<br>
+<div class="panel panel-success">  
+<div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos de la Ruta</div>   
+<div class="panel-body">
+   <form id="rut">
+      <div class="row"> 
+      <div class="col-lg-6">    
+      <div class="form-group">    
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Origen</label>           
+      <input type="text" class="form-control" value="<?php echo $this->rutas[0]['origen'];?>" id="ori" name="ori"> 
+      </div>    
+      </div> 
+      <div class="col-lg-6">   
+      <div class="form-group"> 
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Destino</label>           
+      <input type="text" class="form-control"  value="<?php echo $this->rutas[0]['destino'];?>" id="des" name="des"> 
+      </div>    
+      </div>    
+ </div>
+    <br>
+    <div class="row">
+     <div class="col-lg-6">
+     <div class="form-group">    
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Ruta</label>           
+      <input type="text" class="form-control" value="<?php echo $this->rutas[0]['ruta'];?>" id="ruta" name="ruta"> 
+      </div>    
+      </div>
+     <div class="col-lg-6">
+      <div class="form-group">    
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Sitio</label>           
+      <select class="form-control" id="si" name="si" data-sitio="<?php echo $this->rutas[0]['cod_ruta'];?>" style="cursor:pointer;">
+      <?php foreach ($this->rutas as $rutas) {?>
+      <option  value="<?php echo $rutas['cod_ruta']; ?>"><?php echo $rutas['sitio']; ?></option>
+      <?php }?>
+      </select> 
+      </div>    
+      </div>  
+    </div> 
+    <br>
+  
+       
+    </form>
+ 
+</div>
+</div>    
+   <div class="row">
+   <div class=" text-center">
+       <input type="hidden" id="cod_ruta" value="<?php echo $this->rutas[0]['cod_ruta'];?>"> 
+       <input type="button" id="editar" value="Actualizar"  class="btn btn-default" style="font-family:aleobold;font-size:18px;color:#1d9d74" />   
+   </div>          
+   </div>  
+</div>

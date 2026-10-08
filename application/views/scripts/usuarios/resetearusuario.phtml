@@ -1,0 +1,50 @@
+<br>
+<a href="/usuarios/listarusuario">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;">
+        Atrás <span class="glyphicon glyphicon-arrow-right"></span></button></a>
+<br>
+<div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;">
+<h3 class="" style="font-family:robotoblack;font-size:23px;color:#777"> Cambio de Contraseña </h3>     
+<br>
+<div class="panel panel-success">  
+<div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos del Usuario</div>   
+<div class="panel-body">
+<form id="usu" method="post">
+    <br>
+    <div class="row">
+     <div class="col-lg-6"> 
+     <div class="form-group">
+      <!--Codigo Para encriptar -->
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Contraseña</label>           
+      <input type="password" class="form-control" value="" id="pass" name="pass"> 
+      </div>    
+      </div>
+     <div class="col-lg-6">
+     <div class="form-group">
+     <!--Codigo Para encriptar -->
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Nueva Contraseña</label>           
+      <input type="password" class="form-control" value="" id="pas" name="pas"> 
+      </div>    
+      </div>  
+    </div>
+     <br>
+    <div class="row">
+      <div class="col-lg-6"> 
+      <div class="form-group">
+      <!--Codigo Para encriptar -->
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Confirmar Contraseña</label>           
+      <input type="password" class="form-control" value="" id="pa" name="pa"> 
+      </div>    
+      </div>   
+    </div>  
+</form> 
+</div>
+</div>    
+   <div class="row espacio">
+   <div class=" text-center">
+       <input type="hidden" id="id_usuario" value="<?php echo $this->usuarios[0]['id_usuario']; ?>">    
+    <input type="button" id="resetear" value="Guardar"  class="btn btn-default" style="font-family:aleobold;font-size:18px;color:#1d9d74" />
+    
+   </div>          
+   </div>  
+</div>

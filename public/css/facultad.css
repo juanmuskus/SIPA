@@ -1,0 +1,21 @@
+.woll {
+    margin-bottom: -21px;
+}
+
+.ssilka a{
+        // color:#0080C0;
+}
+
+.ssilka a:hover{
+	//color:#0080C0;
+}
+
+.list-group-item:last-child {
+    border-radius: 0;
+   
+}
+
+.list-group-item:first-child{
+    border-radius: 0;
+}
+

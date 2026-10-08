@@ -1,0 +1,72 @@
+    <br>
+    <div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;">
+    <div class="panel panel-success">  
+    <div class="panel-heading"><h4 class="lead text-center" style="font-family:robotoblack;font-size:22px;color:#777">Información Requerida Para agregar el Servicio</h4></div>   
+    <div class="panel-body">
+    <div class="row">    
+      <div class="form-group">
+      <div class="col-lg-9 text-justify">    
+      <p class= "" style="font-family:aleolight;font-size:20px;color:#000">Para agregar el servicio externo de un bus, contratado
+      por un servicio particular.
+      </p>       
+      </div>    
+      </div> 
+    </div>  
+    </div>
+    </div>    
+    </div>
+<div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 10px;">
+<h3 class="text-center" style="font-family:robotoblack;font-size:23px;color:#777"> Agregar Servicio</h3>     
+<div class="panel panel-success">  
+<div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos de los Servicios</div>   
+<div class="panel-body">
+  <form id="ser">
+    <div class="row"> 
+      <div class="col-lg-6">  
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Tipo Servicio</label>           
+      <select class="form-control" id="servi" name="servi" style="cursor:pointer;">
+      <option value="0">Seleccione una Opcion..</option>    
+      <option>Bus Interno</option>
+      <option>Bus Externo</option>
+      </select>
+      </div>    
+      </div>
+      <div class="col-lg-6">    
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Valor</label>           
+      <input type="text" class="form-control" id="valo" name="valo"> 
+      </div>    
+      </div>   
+      </div> 
+       <br>
+      <div class="row">
+      <div class="col-lg-6">  
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Codigo Programación</label> 
+      <select class="form-control" id="codi" name="codi" style="cursor:pointer;">
+      <?php foreach ($this->programacion as $programacion) {?>    
+      <option value="<?php echo $programacion['codigo_prog'] ;?>"> <?php echo $programacion['codigo_prog'];?></option>
+       <?php }?> 
+      </select>
+      </div>    
+      </div>
+      <div class="col-lg-6">    
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Observación</label>           
+      <input type="text" class="form-control" id="obser" name="obser"> 
+      </div>    
+      </div>      
+      </div> 
+    </form>
+  
+</div>
+</div>    
+   <div class="row">
+   <div class=" text-center">
+   <input type="button" id="agregar" value="Guardar"  class="btn btn-default" style="font-family:aleobold;font-size:18px;color:#1d9d74" />
+    
+     
+   </div>          
+   </div>  
+</div>

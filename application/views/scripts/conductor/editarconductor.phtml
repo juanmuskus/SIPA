@@ -1,0 +1,63 @@
+<br>
+<a href="/conductor/listarconductor">
+<button type="button"  class="btn btn-default" style="font-family:aleolight;background-color:#dff0d8;font-size:16px;color:#000;">
+<span class=""></span> Listar Conductores</button></a>
+<br>
+<div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;">
+<h3 class="text-center" style="font-family:robotoblack;font-size:23px;color:#777"> Editar Conductor</h3>     
+<br>
+<div class="panel panel-success">  
+<div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos del Conductor</div>   
+<div class="panel-body">
+<form id="con">
+<div class="row">    
+      <div class="col-lg-6">   
+      <div class="form-group">
+      <label for="input" class="">Nombres</label>           
+      <input type="text" class="form-control" value="<?php echo $this->conductores[0]['nombre'];?>" id="nom" name="nom"> 
+      </div>    
+      </div> 
+      <div class="col-lg-6">  
+      <div class="form-group">
+      <label for="input" class="">Apellidos</label>           
+      <input type="text" class="form-control" value="<?php echo $this->conductores[0]['apellido'];?>" id="ape" name="ape"> 
+      </div>    
+      </div>
+ </div> 
+    <br>
+    <div class="row">
+      <div class="col-lg-6">  
+      <div class="form-group">
+      <label for="input" class="">Identificación</label>           
+      <input type="text" class="form-control" value="<?php echo $this->conductores[0]['identificacion'];?>" id="ide" name="ide"> 
+      </div>    
+      </div>  
+      <div class="col-lg-6">   
+      <div class="form-group">
+      <label for="input" class="">Telefono</label>           
+      <input type="tel" class="form-control" value="<?php echo $this->conductores[0]['telefono'];?>" id="tele" name="tele"> 
+      </div>    
+      </div>   
+    </div>
+    <br>
+    <div class="row">
+     <div class="form-group">
+      <div class="col-lg-6">    
+      <label for="input" class="">Dirección</label>           
+      <input type="text" class="form-control" value="<?php echo $this->conductores[0]['direccion'];?>" id="dir" name="dir"> 
+      </div>    
+      </div>    
+    </div>
+    <br>
+     
+</form> 
+</div>
+</div>    
+   <div class="row espacio">
+   <div class=" text-center">
+    <input type="hidden" id="id_conductor" value="<?php echo $this->conductores[0]['id_conductor'];?>">   
+    <input type="button" id="editar" value="Actualizar"  class="btn btn-default" style="font-family:aleobold;font-size:18px;color:#1d9d74" /> 
+   </div>          
+   </div>  
+</div>
+

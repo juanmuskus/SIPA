@@ -1,0 +1,32 @@
+<br>
+<a href="/recurespeciales/listarrecurespeciales">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;">
+        Atrás <span class="glyphicon glyphicon-arrow-right"></span></button></a>
+<br>
+<div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;">
+<h3 class="text-center" style="font-family:robotoblack;font-size:25px;color:#777"> Editar Los Recursos Especiales</h3>     
+<br>
+<div class="panel panel-success">  
+<div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos de los Recursos</div>   
+<div class="panel-body">
+    <form id="recur">
+     <div class="row">    
+      <div class="form-group">
+      <div class="col-lg-6">    
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Nombre del Recurso Especial</label>           
+      <input type="text" class="form-control" value="<?php echo $this->recursos[0]['nombre'];?>" id="recu" name="recu"> 
+      </div>    
+      </div> 
+ </div>
+ </form>
+       
+</div>
+</div> 
+     <div class="row espacio">
+   <div class=" text-center">
+     <!-- guardar datos  -->
+     <input type="hidden" id="id_recursos" value="<?php echo $this->recursos[0]['id_recursos'];?>">  
+     <input type="button"  value="Actualizar" id="editar" class="btn btn-default" style="font-family:aleobold;font-size:18px;color:#1d9d74" />
+        </div>          
+        </div>       
+    </div>

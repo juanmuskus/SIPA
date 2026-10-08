@@ -1,0 +1,13 @@
+Options -Indexes
+RewriteEngine On
+
+# Never expose application source, the legacy copy, logs, or repository metadata.
+RewriteRule ^(?:app|application|library|SIPA_Zend|log|tests|docs|bin|nbproject)(?:/|$) - [F,NC,L]
+RewriteRule (^|/)\.(?:git|svn|env)(?:/|$) - [F,L]
+RewriteRule \.(?:ini|xml|log|sql|bat|sh|md)$ - [F,NC,L]
+
+# Keep public assets accessible when the project root is the web document root.
+RewriteCond %{REQUEST_URI} !/public/ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]

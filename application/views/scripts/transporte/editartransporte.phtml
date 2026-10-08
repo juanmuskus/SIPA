@@ -1,0 +1,70 @@
+<br>
+<a href="/transporte/listartransporte">
+<button type="button"  class="btn btn-default" style="font-family:aleolight;background-color:#dff0d8;font-size:16px;color:#000;">
+<span class=""></span> Listar Vehículos</button></a>
+<br>
+<div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;">
+<h3 class="text-center" style="font-family:robotoblack;font-size:23px;color:#777"> Editar Vehiculo</h3>     
+<br>
+<div class="panel panel-success">  
+<div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos del vehiculo</div>   
+<div class="panel-body">
+    <form id="tra">
+     <div class="row">
+      <div class="col-lg-6">    
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Nombre de la Placa</label>           
+      <input type="text" class="form-control" value="<?php echo $this->transporte[0]['placa'];?>"  id="placa" name="placa"> 
+      </div>    
+      </div>
+      <div class="col-lg-6">     
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Descripción</label>           
+      <input type="text" class="form-control" value="<?php echo $this->transporte[0]['descripcion'];?>" id="descri" name="descri"> 
+      </div>    
+      </div>   
+       </div>   
+       <br>
+    <div class="row">
+     <div class="col-lg-6">   
+     <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">tipo_vehiculo</label>           
+      <select class="form-control" value="<?php echo $this->transporte[0]['tipo_vehiculo'];?>" id="vehi" name="vehi" style="cursor:pointer;">
+      <option>Gasolina</option>
+      <option>Diesel</option>   
+      <option>Gas</option> 
+       </select> 
+      </div>    
+      </div>
+      <div class="col-lg-6">  
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Estado Vehiculo</label>           
+      <select class="form-control" value="<?php echo $this->transporte[0]['estado_vehiculo'];?>" id="estado" name="estado" style="cursor:pointer;">
+      <option>Carro Nuevo</option>
+      <option>Carros Viejo</option>
+      <option>Carro Bueno</option>   
+      <option>Carro Regular</option> 
+       </select> 
+      </div>    
+      </div>  
+    </div> 
+        <br>
+    <div class="row">
+     <div class="col-lg-6"> 
+     <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Capacidad de Pasajeros</label>           
+      <input type="text" class="form-control" value="<?php echo $this->transporte[0]['capacidad_pasajeros'];?>" id="pasa" name="pasa"> 
+      </div>    
+      </div>    
+    </div> 
+    </form>
+ 
+</div>
+</div>    
+   <div class="row">
+   <div class=" text-center">
+    <input type="hidden" id="cod_transporte" value="<?php echo $this->transporte[0]['cod_transporte']; ?>">      
+    <input type="button" id="editar" value="Actualizar"  class="btn btn-default"  style="font-family:aleobold;font-size:18px;color:#1d9d74" />  
+   </div>          
+   </div>  
+</div>

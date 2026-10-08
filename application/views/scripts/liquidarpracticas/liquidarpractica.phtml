@@ -1,0 +1,108 @@
+        <br>
+        <a href="/practicas/listarpractica">
+        <button type="button"  class="btn btn-success" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;">Listar Práctica
+        <span class=""></span></button></a>
+        <br>
+        <br>
+ <!--       <a href="/liquidarpracticas/listarliquidarpracticas/cod_practica/<?php echo $this->cod_practica; ?>">
+        <button type="button"  class="btn btn-primary">
+        <span class="glyphicon glyphicon-arrow-left"></span> Listar Liquidación</button></a>
+        <br>  -->
+ <div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;">
+<h3 class="" style="font-family:robotoblack;font-size:23px;color:#777"> Liquidar Docente</h3>     
+<br>
+<div class="panel panel-success">  
+<div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos de la Liquidación de la Práctica</div>   
+<div class="panel-body">  
+<form id="doc">
+<div class="row"> 
+      <div class="col-lg-6"> 
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">viatico docente</label>           
+      <input  type="text" value="<?php echo $this->valor_docente ;?>"  class="form-control" id="via" name="via"> 
+      </div>    
+      </div> 
+     <div class="col-lg-6"> 
+     <div class="form-group">
+     <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Auxilio Estudiante</label>           
+     <input  type="text" class="form-control" value="<?php echo $this->auxilio_est ;?>" id="estu" name="estu"> 
+      </div>    
+      </div> 
+ </div>
+    <div class="row"> 
+        <br>
+      <div class="col-lg-6">   
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Transporte Especial</label>           
+      <input  type="text" class="form-control" value="<?php echo $this->total_recursos ;?>" id="tran" name="tran"> 
+      </div>    
+      </div> 
+       <div class="col-lg-6">    
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Estado Pago</label>           
+      <select class="form-control" id="estado" name="estado" style="cursor:pointer;">
+          <option value="0">Seleccione una Opcion...</option>
+          <option>Tramite</option> 
+          <option>pagada</option> 
+          <option>Cancelada la Práctica</option>    
+       </select> 
+      </div>    
+      </div>   
+      </div> 
+  
+ <!--   <div class="row">
+        <br>
+     <label class="center-block" align="center">Transporte Especial</label>   
+    </div> -->
+     <div class="row"> 
+        <br>
+      <div class="col-lg-6">  
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Fecha Pago</label>           
+      <div class='input-group date' id='divMiCalendario' style="cursor:pointer;">
+      <input type='text' id="pa" name="pa" placeholder="DD/MM/AAAA" class="form-control calendario"  />
+      <div class="input-group-addon"><span id="calend"></span>
+      </div>    
+      </div> 
+      </div>   
+      </div>
+      <div class="col-lg-6">  
+     <div class="form-group">
+     <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Legalizado</label>           
+      <select class="form-control" id="lega" name="lega" style="cursor:pointer;">
+      <option value="0">Seleccione una Opcion...</option>
+      <option>Si</option> 
+      <option>No</option> 
+      </select> 
+      </div>    
+      </div>       
+      </div>
+    <div class="row">   
+      <div class="col-lg-6"> 
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Fecha Legalizado</label>           
+      <div class='input-group date' id='divMiCalendario' style="cursor:pointer;">
+      <input type='text' id="le" name="le" placeholder="DD/MM/AAAA" class="form-control calendario"  />
+      <div class="input-group-addon"><span id="calend" ></span>
+      </div>    
+      </div> 
+      </div>   
+      </div> 
+     <div class="col-lg-6">  
+     <div class="form-group">
+   <!--   <label for="input"  style="font-family:aleolight;font-size:14px;color:#000">Codigo de la Práctica</label> -->
+    <input type="hidden" id="cod_practica" value="<?php echo $this->cod_practica ;?>"> 
+     </div>    
+      </div>  
+    </div>    
+</form>   
+</div>    
+   <div class="row espacio">
+   <div class=" text-center">  
+     <input type="button" value="Liquidar" id="agregar" class="btn btn-default" style="font-family:aleobold;font-size:18px;color:#1d9d74" />
+     <br>
+     <br>
+   </div>          
+   </div>  
+</div>
+</div> 

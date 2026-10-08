@@ -1,0 +1,43 @@
+<br>
+<a href="/inicio/admin">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;">
+        <span class=""></span> Inicio</button></a>
+<br>
+<div class="row col-sm-4 col-md-6 col-lg-12" style="margin-top: 10px;">
+    <h3 class="text-center" style="font-family:robotoblack;font-size:25px;color:#777">Listar Rutas</h3>
+    <br>
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+              
+                <th style="font-family:aleolight;font-size:14px;color:#000">Origen</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Destino</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Ruta</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Sitio</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Acciones</th>
+                
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+            
+                <th style="font-family:aleolight;font-size:14px;color:#000">Origen</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Destino</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Ruta</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Sitio</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Acciones</th>
+            </tr>
+        </tfoot>
+        <tbody>
+           <?php foreach ($this->rutas as $rutas) {?> 
+            <tr>
+                <td><?php echo $rutas ['origen'];?></td>
+                <td><?php echo $rutas ['destino'];?></td>
+                <td><?php echo $rutas ['ruta'];?></td>
+                <td><?php echo $rutas ['sitio'];?></td>
+                <td><a href="/rutas/editarruta/id/<?php echo $rutas ['cod_ruta'];?> "><i class="fa fa-pencil-square-o" style="font-size:18px;color:#337ab7;cursor:pointer;"></i></a>&nbsp;<a class="eliminar_ruta" data-ruta="<?php echo $rutas['cod_ruta'];?>" href="#"><i class="fa fa-trash" style="font-size:18px;color:#d9534f;cursor:pointer;"></i></a></td>
+            </tr> 
+            <?php }?>
+        </tbody>
+    </table>    
+        </div> 

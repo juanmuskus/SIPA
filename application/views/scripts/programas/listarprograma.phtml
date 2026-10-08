@@ -1,0 +1,32 @@
+<div class="row col-sm-4 col-md-6 col-lg-9" style="margin-top: 10px;">
+    <h3 style="font-family:robotoblack;font-size:23px;color:#777">Listado de los Programas Académicos</h3>
+    <br>
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+              
+                <th style="font-family:aleolight;font-size:16px;color:#000">Nombre del Programa</th>
+                <th style="font-family:aleolight;font-size:16px;color:#000">Nombre de la Facultad</th>
+                <th style="font-family:aleolight;font-size:16px;color:#000">Acciones</th>
+                
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+            
+                <th style="font-family:aleolight;font-size:16px;color:#000">Nombre del Programa</th>
+                <th style="font-family:aleolight;font-size:16px;color:#000">Nombre de la Facultad</th>
+                <th style="font-family:aleolight;font-size:16px;color:#000">Acciones</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <?php foreach ($this->programas as $programas) {?>  
+            <tr>
+                <td><?php echo $programas['nombre'];?></td>
+                <td><?php echo $programas['cod_facultad']['nombre'];?></td>
+                <td><a href="/programas/editarprograma/id/<?php echo $programas['id_programa'];?>"><i class="fa fa-pencil-square-o" style="font-size:18px;color:#337ab7;cursor:pointer;"></i></a>&nbsp;<a class="eliminar_programa" data-programa="<?php echo $programas['id_programa'];?>" href="#"> <i class="fa fa-trash" style="font-size:18px;color:#d9534f;cursor:pointer;"></i></a></td>
+            </tr> 
+            <?php }?>
+        </tbody>
+    </table>    
+        </div> 

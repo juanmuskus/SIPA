@@ -1,0 +1,598 @@
+
+<!-- Evento de departamento -->
+
+    <?php
+if($this->rol == 2){?>
+<script>
+$(function(){
+   // console.log("hola");
+    $('#fac').triggerHandler('change');
+   // $('#asigna').triggerHandler('change');
+   // $('#gru').triggerHandler('change');
+});
+
+</script>
+<?php } ?>
+
+<br>
+<br>
+<br>
+<style>.modal .modal-dialog{width:800px;padding: 20px}</style>
+ <?php
+   if($this->rol == 1){?>
+   <a href="/inicio/admin" style="font-family:aleolight;font-size:16px;color:#000">
+        <button type="button"  class="btn btn-success" >
+        <span class="glyphicon glyphicon-arrow-left"></span> Admin</button></a>
+         <br>
+         <br>
+        <a href="/inicio/departamento" style="font-family:aleolight;font-size:16px;color:#000">
+        <button type="button"  class="btn btn-default">
+        <span class="glyphicon glyphicon-arrow-left"></span> Inicio</button></a>
+   <?php } else{ 
+
+   if($this->rol == 2){?>
+         <br>
+    <!--    <a href="/inicio/departamento">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;width:100px;">
+        <span class=""></span> Inicio</button></a>    -->      
+   <?php }?>
+   <?php }?>      
+    
+    <h2 class="text-center" style="font-family:robotoblack;font-size:26px;color:#777">AGREGAR PRÁCTICAS ACADÉMICAS</h2> 
+<div class="fuelux">
+    <br>
+    <div class="wizard" data-initialize="wizard" id="myWizard">   
+    <div class="steps-container">
+	<ul class="steps">
+		<li data-step="1" data-name="campaign" class="active">
+			<span class="badge">1</span>Paso
+			<span class="chevron"></span>
+		</li>
+		<li data-step="2">
+			<span class="badge">2</span>Paso
+			<span class="chevron"></span>
+		</li>
+                <li data-step="3">
+			<span class="badge">3</span>Paso
+			<span class="chevron"></span>
+		</li>
+		<li data-step="4" data-name="template">
+			<span class="badge">4</span>Paso
+			<span class="chevron"></span>
+		</li>
+	</ul>
+</div> 
+       
+<div class="actions">
+	<button type="button" class="btn btn-default btn-prev">
+		<span class="glyphicon glyphicon-arrow-left"></span>Atrás</button>
+    <button type="button" class="btn btn-success btn-next" id="final" data-last="Finalizar">Siguiente
+		<span class="glyphicon glyphicon-arrow-right"></span>
+	</button>
+</div>
+    <form id="pra">
+    <div class="step-content">
+<div class="step-pane active sample-pane alert" data-step="1">
+	<div class="row">
+        <h3 class="text-center" style="font-family:robotoblack;font-size:20px;color:#777"> Fechas de la convocatoria de las Prácticas Académicas</h3>
+        <h4 class="text-center" style="font-family:robotoblack;font-size:20px;color:#777">Dentro de estas fechas podra ingresar las prácticas académicas</h4>
+        <div class="row"> 
+         <br>
+        <div class="col-xs-6"> 
+        <div class="form-group">
+        <label for="input" style="font-family:aleolight;font-size:14px;color:#000">Fecha Inicio del calendario académico</label>           
+        <div class='input-group date'   id='divMiCalendario' style="cursor:pointer;">
+        <input type='text' id="ini" name="ini" value="<?php echo $this->calendario[0]['fecha_inicio']->format('d/m/Y');?>" class="form-control calendario" disabled/>
+        <div class="input-group-addon"><span id="calend" class="glyphicon glyphicon-calendar calendarioboton"></span>
+        </div>    
+        </div> 
+        </div>
+        </div>
+        <div class="col-xs-6">    
+        <div class="form-group">
+        <label for="input" style="font-family:aleolight;font-size:14px;color:#000">Fecha Final del calendario académico</label>           
+        <div class='input-group date' id='divMiCalendario1' style="cursor:pointer;">
+        <input type='text' id="fin" name="fin" value="<?php echo $this->calendario[0]['fecha_fin']->format('d/m/Y');?>" class="form-control calendario"  disabled/>
+        <div class="input-group-addon"><span id="calend" class="glyphicon glyphicon-calendar calendarioboton"></span>
+        </div>    
+        </div>         
+        </div>
+        </div>       
+        </div> 
+        <br>
+        <div class="col-xs-6">
+        <div class="">
+        <label style="font-family:aleolight;font-size:14px;color:#000">Calendario Activo para la creación de la práctica académica </label>
+        <select class="form-control" id="cal" name="cal" style="cursor:pointer;" disabled/>
+         <?php foreach ($this->calendario as $calendario) {?>
+            <option  value="<?php echo $calendario['id']['id_annio'];?>"><?php echo $calendario['id_annio']['annio']; ?>&nbsp;<?php echo $calendario['id_periodo']['periodo'];?></option>
+         <?php }?>
+        </select>       
+        </div>       
+        </div>
+        <div class="form-group">
+        <div class="col-xs-6">
+        <label style="font-family:aleolight;font-size:14px;color:#000">Nombre del Solicitante</label>    
+        <select class="form-control" id="nombre" name="nombre" style="cursor:pointer;">
+        <?php foreach ($this->docentes as $docentes) {?>
+          <option  value="<?php echo $docentes['cod'];?>"><?php echo htmlentities(utf8_encode($docentes['ape']));?> <?php echo htmlentities(utf8_encode($docentes['nom']));?></option>
+        <?php }?>
+        </select> 
+        </div>
+        </div>        
+        </div> 
+        <div class="row">
+        <br>
+        <div class="col-xs-6">
+        <div class="">
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000"> Facultad </label>
+        <select class="form-control" id="fac" name="fac" style="cursor:pointer;">
+         <?php var_dump($this->facultad); foreach ($this->facultad as $datos) {?>
+          <option  value="<?php echo $datos['id_facultad'];?>"><?php echo htmlentities(utf8_encode($datos['nombre']));?></option>
+         <?php }?>
+        </select>       
+        </div>       
+        </div>
+        <div class="col-xs-6">
+        <div class="">
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000"> Departamento </label> 
+        <select class="form-control" id="dep" name="dep" style="cursor:pointer;">
+        <option  value=""></option>
+        </select>       
+        </div>       
+        </div> 
+        </div>
+        <div class="row">
+        <br>
+        <div class="col-xs-6">
+        <div class="">
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000"> Programa  </label>
+        <select class="form-control" id="pro" name="pro" style="cursor:pointer;">
+          <option  value=""></option>
+        </select>       
+        </div>       
+        </div>
+        <div class="col-xs-6">
+        <div class="form-group">
+        <label class="" style="font-family:aleolight;font-size:14px;color:#000"> Semestre </label> 
+        <select class="form-control" id="sem" name="sem" style="cursor:pointer;">
+        <option></option>
+        </select>       
+        </div>       
+        </div> 
+        </div>
+        <div class="row">
+        <br>
+        <div class="col-xs-6">
+        <div class="">
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000"> Asignatura </label>
+        <select class="form-control" id="asigna" name="asigna" style="cursor:pointer;">
+        <option  value=""></option>
+        </select>       
+        </div>       
+        </div>
+        <div class="col-xs-3">
+        <div class="">
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000"> Grupo </label>
+        <select class="form-control" id="gru" name="gru" style="cursor:pointer;">
+        <option  value=""></option> 
+        </select>   
+        </div>       
+        </div> 
+        <div class="col-xs-3">
+        <div class="">
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000"> Número Estudiantes </label>
+        <select class="form-control" id="num" name="num" style="cursor:pointer;">
+        <option  value=""></option> 
+        </select>   
+        </div>       
+        </div> 
+        </div>
+        <div class="row">
+         <br>
+         <br>
+         <div class="col-xs-6">
+        <div class="form-group">
+        <label for="" style="font-family:aleolight;font-size:14px;color:#000"> Nombre de la Práctica</label>
+        <input type="text" name="nom" class="form-control" id="nom">
+        <small id="emailHelp" class="form-text text-muted">Diligencie los campos.</small>
+        </div>    
+         </div>
+         <div class="col-xs-6">
+         <div class="form-group">
+        <label for="" style="font-family:aleolight;font-size:14px;color:#000">Tipo de Práctica</label>
+        <select class="form-control" name="tipo" style="cursor:pointer;" id="tipo">
+        <option value="0">Seleccione una Opcion...</option>    
+        <option>Practica de Campo</option>
+        <option>Visitas empresariales</option>
+        <option>Prácticas Externas de laboratorio</option>
+        </select>
+        <small id="emailHelp" class="form-text text-muted">Selecione un tipo de Práctica.</small>
+        </div>     
+         </div>
+        </div> 
+        <div class="row">
+        <div class="form-group">
+        <div class="text-center"> <label for="" style="font-family:aleolight;font-size:14px;color:#000">Objetivos de la Práctica</label></div>
+        <textarea class="form-control" name="obj" id="obj" rows="3"></textarea>
+        <small id="emailHelp" class="form-text text-muted">Diligencie los campos.</small>
+        </div>    
+        </div>
+        <div class="row">
+        <div class="form-group">
+        <div class="text-center"><label for="" style="font-family:aleolight;font-size:14px;color:#000">Justificación de la Práctica</label></div>
+        <textarea class="form-control" name="jus" id="jus" rows="3"></textarea>
+        <small id="emailHelp" class="form-text text-muted">Diligencie los campos.</small>
+        </div>    
+        </div> 
+        <div class="row">
+        <div class="form-group">
+        <div class="text-center"><label for="" style="font-family:aleolight;font-size:14px;color:#000">Actividades desarrolladas por el Docente</label></div>
+        <textarea class="form-control" name="adoc" id="adoc" rows="3"></textarea>
+        <small id="emailHelp" class="form-text text-muted">Diligencie los campos.</small>
+        </div>    
+        </div> 
+        <div class="row">
+        <div class="form-group">
+        <div class="text-center"> <label for="" style="font-family:aleolight;font-size:14px;color:#000">Actividades desarrolladas por el Estudiante</label></div>
+        <textarea class="form-control" name="est" id="est" rows="3"></textarea>
+        <small id="emailHelp" class="form-text text-muted">Diligencie los campos.</small>
+        </div>    
+        </div>     
+	</div>
+       <div class="step-pane sample-pane  alert" data-step="2">
+       <div class="row"> 
+       <div class="form-group">
+          <h3 class="text-center" style="font-family:robotoblack;font-size:20px;color:#777">Fechas para la Programación de las Prácticas Académicas</h3>  
+          <h4 class="text-center" style="font-family:robotoblack;font-size:20px;color:#777">Por Favor ingrese las fecha de salida y de llegada de las programaciones</h4>
+          <br>
+      <div class="col-lg-6">    
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Fecha Salida</label>           
+      <div class='input-group date' id='divMiCalendario' style="cursor:pointer;">
+        <input type='text' id="sal" placeholder="DD/MM/AAAA" class="form-control calendario"  />
+        <div class="input-group-addon"><span class=""></span>
+        </div>    
+       </div> 
+      </div>
+      <div class="col-lg-6">    
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Fecha Llegada</label>           
+     <div class='input-group date' id='divMiCalendario'>
+        <input type='text' id="lle" placeholder="DD/MM/AAAA" class="form-control calendario"  />
+        <div class="input-group-addon"><span class=""></span>
+        </div>    
+      </div> 
+      </div>    
+      </div> 
+      </div> 
+         <br>
+        <div class="row">
+        <div class="col-lg-6">
+        <div class="form-group">
+        <label for="" style="font-family:aleolight;font-size:14px;color:#000">Lugar del Encuentro</label>
+        <input type="text" id="lug" class="form-control">
+        <small id="emailHelp" class="form-text text-muted">Diligencie los campos.</small>
+        </div>    
+        </div>
+        </div>     
+	</div>
+	<div class="step-pane sample-pane  alert" data-step="3">
+        <br>    
+        <div class="row">
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <h3 class="text-center" style="font-family:robotoblack;font-size:20px;color:#777">Programación de las Prácticas Académicas</h3>      
+        <thead>
+            <tr>
+                <th style="font-family:aleolight;font-size:14px;color:#000">NoDías</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Recor</th>
+<!--                <th>De</th> -->
+                <th style="font-family:aleolight;font-size:14px;color:#000">Fecha Sal</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Lugar</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">DíasPern</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">FechaLleg</th>
+<!--            <th>Recur</th>
+                <th>Doce.R</th>
+                <th>Aux</th>
+                <th>Ases</th>-->
+<!--            <th>Obs</th<-->
+                <th style="font-family:aleolight;font-size:14px;color:#000">Accion</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th style="font-family:aleolight;font-size:14px;color:#000">NoDías</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Recor</th>
+<!--                <th>De</th> -->
+                <th style="font-family:aleolight;font-size:14px;color:#000">Fecha Sal</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Lugar</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">DíasPern</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">FechaLleg</th>
+<!--            <th>Recur</th>
+                <th>Doce.R</th>
+                <th>Aux</th>
+                <th>Ases</th>
+                <th>Obs</th>-->
+                <th style="font-family:aleolight;font-size:14px;color:#000">Accion</th>
+            </tr>
+        </tfoot>
+        <tbody>
+           
+        </tbody>
+    </table>    
+        </div> 
+        <div id="form" class="hide" style="padding: 20px;">
+        <div class="row">
+        <div class="form-group">
+        <label for="" style="font-family:aleolight;font-size:14px;color:#000">Recorrido por dia de la Práctica</label>
+        <select class="form-control reco"  name="reco" style="cursor:pointer;">
+         <option value="0">Seleccione una Opcion...</option>   
+         <?php foreach ($this->rutas as $rutas) {?>
+          <option  value="<?php echo $rutas['cod_ruta'];?>"><?php echo $rutas['ruta'];?></option>
+          <?php }?>
+        </select>  
+        </div>    
+        </div>    
+        <br>
+        <div class="row">
+        <div class="form-group">
+        <label for="" style="font-family:aleolight;font-size:14px;color:#000">Desplazamiento</label>
+        <input type="text"  class="form-control despla">
+        <small id="emailHelp" class="form-text text-muted">Diligencie los campos.</small>
+        </div> 
+        </div>
+        <br>
+        <div class="row">
+        <div class="form-group"> 
+        <div class="checkbox">
+        <label style="font-family:aleolight;font-size:14px;color:#000"><input type="checkbox" class="per"> Pernoctado</label>
+        </div> 
+        </div>       
+         </div>
+        
+         <div class="row">
+             <br>
+        <div class="col-xs-6">  
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000"> Auxiliares </label>
+        <select class="form-control auxi" name="auxi" id="auxi"  style="cursor:pointer;">
+            <option value="0">Seleccione una Opcion...</option>
+        <?php foreach ($this->participantess as $participantess) {?>    
+            <option value="<?php echo $participantess['id_participante'];?>"><?php echo $participantess['nombre'];?></option>
+         <?php }?>
+        </select>       
+        </div>     
+        </div>  
+         <br>
+        <div class="row">
+            <br>   
+        <div class="col-xs-6">
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000"> Asesores </label>
+        <select class="form-control ases" name="ases" id="ases" style="cursor:pointer;">
+            <option value="0">Seleccione una Opcion...</option>
+         <?php foreach ($this->participante as $participante) {?>    
+            <option value="<?php echo $participante['id_participante'];?>"><?php echo $participante['nombre'];?></option>
+         <?php }?>
+        </select>       
+        </div> 
+        </div>  
+         <br>
+         <div class="row">
+             <br>
+        <div class="form-group">
+        <label for="" style="font-family:aleolight;font-size:14px;color:#000">Observaciones</label>
+        <textarea class="form-control obs"  rows="3"></textarea>
+        <small id="emailHelp" class="form-text text-muted">Diligencie los campos.</small>
+        </div>           
+        </div>     
+        <input type="hidden" id="codigo_prog" value="">      
+        </div>
+	</div>
+	<div class="step-pane sample-pane  alert" data-step="4">
+         <div class="text-center">
+             <h2 style="font-family:robotoblack;font-size:20px;color:#777">Resumen de las Prácticas Académica</h2> 
+             <h4 style="font-family:robotoblack;font-size:20px;color:#777">Por Favor verifique antes de finalizar la Práctica</h4>
+         </div>
+        <div class="row">
+      <div class="container col-sm-6 col-md-6 col-lg-6" style="margin-top: 20px;">
+       <h4 class="" style="font-family:robotoblack;font-size:20px;color:#777"> Paso 1 Agregar Práctica</h4>     
+       <br>
+       <div class="panel panel-success">  
+       <div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos de la Práctica</div>   
+       <div class="panel-body">
+       <div class="row">    
+      <div class="form-group">
+      <div class="col-lg-12">    
+      <div class="tabla_datos">
+                      <div class="panel panel-default item-tabla item-tabla-61">
+                      <div class="panel-body">  
+                      <table class="table">
+                     
+                          <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Calendario Académico</td>
+                              <td id="rep_cal"></td>
+                          </tr>
+                           <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Nombre del docente solicitante</td>
+                              <td id="rep_docente"></td>
+                          </tr>
+                           <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Asignatura</td>
+                              <td id="rep_asig"></td>
+                          </tr>
+                          <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Grupo</td>
+                              <td id="rep_gru"></td>
+                          </tr>
+                           <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Número Estudiantes</td>
+                              <td id="rep_numest"></td>
+                          </tr>
+                           <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Nombre Práctica</td>
+                              <td id="rep_nompr"></td>
+                          </tr>
+                          <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Objetivos </td>
+                              <td id="rep_obj"></td>
+                          </tr>
+                          <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Justificación </td>
+                              <td id="rep_just"></td>
+                          </tr>
+                          <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Actividades Docente</td>
+                              <td id="rep_actdoc"></td>
+                          </tr>
+                          <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Actividades Estudiantes</td>
+                              <td id="rep_actest"></td>
+                          </tr>
+                          <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Tipo Práctica</td>
+                              <td id="rep_tipopr"></td>
+                          </tr>
+                         </table>
+                        </div>     
+                    </div>
+        </div>           
+      </div>    
+      </div> 
+       </div>  
+       </div>
+       </div>    
+      </div>
+       <div class="container col-sm-6 col-md-6 col-lg-6" style="margin-top: 20px;">
+       <h4 class="" style="font-family:robotoblack;font-size:20px;color:#777"> Paso 2 Agregar Fechas de Programación </h4>     
+       <br>
+       <div class="panel panel-success">  
+       <div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos Fecha y Lugar</div>   
+       <div class="panel-body">
+           <div class="panel panel-default item-tabla item-tabla-61">
+                      <div class="panel-body">  
+                      <table class="table">
+                     
+                          <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Fecha salida</td>
+                              <td id="rep_fsal"></td>
+                          </tr>
+                           <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Fecha llegada</td>
+                              <td id="rep_flleg"></td>
+                          </tr>
+                           <tr>
+                              <td style="font-family:aleolight;font-size:14px;color:#000">Lugar</td>
+                              <td id="rep_lugar"></td>
+                          </tr>
+                           
+                          
+                         </table>
+                        </div>
+                          
+                    </div>
+       </div>
+       </div>    
+      </div>      
+        </div>
+          
+        <div class="row">
+          <div class="container col-sm-6 col-md-6 col-lg-12" style="margin-top: 20px;">
+       <h4 class="" style="font-family:robotoblack;font-size:20px;color:#777"> Paso 3 Agregar Programación</h4>     
+       <br>
+       <div class="panel panel-success">  
+       <div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos de Programación</div>   
+       <div class="panel-body">
+           <div id="rep_tbl"></div>
+       </div>
+       </div>    
+      </div>  
+        </div>     
+	</div>
+
+</div>    
+    </form>
+  <!--Auxiliares y Asesores -->       
+  <!--Recursos Especiales -->
+  <div class="hide" id="re" style="padding:20px;">
+    <br>
+        <div class="row">
+        <div class="col-xs-6">
+        <label class="center-block" style="font-family:aleolight;font-size:14px;color:#000">Recursos Especiales</label>
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000"> Tipo</label>
+        <select class="form-control tipo" style="cursor:pointer;">
+        <option value="0">Seleccione una Opcion...</option>   
+        <?php foreach ($this->recursos as $recursos) {?>
+        <option  value="<?php echo $recursos['id_recursos'];?>"><?php echo $recursos['nombre'];?></option>
+        <?php }?>
+        </select>    
+        </div>
+        <div class="col-xs-6">
+         <br>
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000"> valor($)</label>
+        <input class="form-control valor"  type="text">
+        <small id="emailHelp" class="form-text text-muted"></small>     
+        </div>    
+        </div>
+         <br>
+        <div class="text-right">
+         <input type='button' class="button btn btn-default rec"  value='Agregar Recurso' style="font-family:aleobold;font-size:18px;color:#1d9d74"  />        
+        </div>
+         <br>
+        <div class="row">
+        <table class="display recurso" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th style="font-family:aleolight;font-size:14px;color:#000">id Recurso</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Tipo de Recurso</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Valor</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Accion</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th style="font-family:aleolight;font-size:14px;color:#000">id Recurso</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Tipo de Recurso</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Valor</th>
+                <th style="font-family:aleolight;font-size:14px;color:#000">Accion</th>
+            </tr>
+        </tfoot>
+        <tbody>
+           
+        </tbody>
+    </table>    
+        </div>    
+  </div>
+  <!-- Agregar participantes -->
+   <div class="hide" id="par" style="padding:20px;">
+    <br>
+        <div class="row">
+        <div class="col-xs-6">
+         <br>
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000">Nombres del Participante</label>
+        <input class="form-control nom"  type="text">
+        <small id="emailHelp" class="form-text text-muted"></small>     
+        </div> 
+        <br>
+        <div class="col-xs-6">
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000">Identificación del Participante</label>
+        <input class="form-control ide"  type="text">
+        <small id="emailHelp" class="form-text text-muted"></small>     
+        </div> 
+        <br>
+        <div class="col-xs-6">
+            <br>    
+        <label class="form-group" style="font-family:aleolight;font-size:14px;color:#000"> Tipo de Participante</label>
+        <select class="form-control tip" style="cursor:pointer;">
+        <option value="0">Seleccione una Opcion...</option>   
+        <option>Auxiliar</option>  
+        <option>Asesor</option>  
+        </select>    
+        </div>
+           
+        </div>
+          
+  </div>
+
+</div>       
+</div>     
+
+<!--Implementación de Wizard -->
+        
+      

@@ -1,0 +1,63 @@
+
+    <br>
+    <a href="/liquiconductor/listarliquiconductor">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;">
+        <span class=""></span>Liquidaciones</button></a>
+    <br>
+    <h2 class="text-center" style="font-family:robotoblack;font-size:26px;color:#777">LISTADO DE PRÁCTICAS ACADÉMICAS</h2>
+<div class="tabla_datos">
+                
+                      <?php foreach ($this->practicas as $practicas){?>
+                      <div class="panel panel-default item-tabla item-tabla-61">
+                      <div class="panel-body">  
+                      <table class="table">
+                       
+                           <tr>
+                            <td colspan="2" style="text-align: right">
+                             <a href="/liquiconductor/agregarliquiconductor" class="btn btn-info btn-xs editar-tabla-datos" data-id="61"  data-tipo="1" style="font-family:aleolight;font-size:15px;color:#000;">Liquidar Conductor</a>     
+                                 
+                                  <!--implemento el rol 4 -->
+                                 
+                              </td>
+                        
+                          </tr>
+                        
+                           <tr>
+                              <td>Codigo Práctica</td>
+                              <td class="cod"><?php echo $practicas['cod_practica']; ?></td>
+                          </tr>
+                          <tr>
+                              <td>Calendario Académico</td>
+                              <td class="cal"><?php echo $practicas['id_calendario']['id']; ?></td>
+                          </tr>
+                           <tr>
+                              <td>Nombre del docente solicitante</td>
+                              <td class="campo_o"><?php echo $this->docentes[0]['ape'].' '.$this->docentes[0]['nom'];?></td>
+                          </tr>
+                           <tr>
+                              <td>Facultad</td>
+                              <td class="campo_o"><?php echo $practicas['facultad']?></td>
+                          </tr>
+                           <tr>
+                              <td>Departamento</td>
+                              <td class="campo_o"><?php echo $practicas['departamento']?></td>
+                          </tr>
+                           <tr>
+                              <td>Programa</td>
+                              <td class="campo_o"><?php echo $practicas['programa']?></td>
+                          </tr>
+                         
+                          <tr>
+                              <td>Número Estudiantes</td>
+                              <td class="campo_n"><?php echo $practicas['num_estudiantes']?></td>
+                          </tr>
+                           
+                         </table>
+                        </div>
+                          
+                    </div>
+                   <?php }?>  
+ 
+</div>
+                          
+               

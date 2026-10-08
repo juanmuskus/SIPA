@@ -1,0 +1,91 @@
+<br>
+<a href="/inicio/admin">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;">
+        <span class=""></span> Inicio</button></a>
+<br>
+<div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;">
+<h3 class="text-center" style="font-family:robotoblack;font-size:25px;color:#777"> Agregar Usuario</h3>     
+<br>
+<div class="panel panel-success">  
+<div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos del Usuario</div>   
+<div class="panel-body">
+<form id="usu" method="post">
+<div class="row"> 
+      <div class="col-lg-6">
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Nombres</label>           
+      <input type="text" class="form-control" id="nom" name="nom"> 
+      </div>    
+      </div> 
+      <div class="col-lg-6">
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Apellidos</label>           
+      <input type="text" class="form-control"  id="ape" name="ape"> 
+      </div>    
+      </div>    
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-6">    
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Identificación</label>           
+      <input type="text" class="form-control" id="ide" name="ide"> 
+      </div>    
+      </div>    
+     <div class="col-lg-6">
+     <div class="form-group">
+     <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Correo</label>           
+      <input type="text" class="form-control" id="correo" name="correo"> 
+      </div>    
+      </div>    
+     </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-6"> 
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Usuario</label>           
+      <input type="text" class="form-control"  id="usuario" name="usuario"> 
+      </div>    
+      </div>    
+      <div class="col-lg-6"> 
+      <div class="form-group">
+      <!--Codigo Para encriptar -->
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Contraseña</label>           
+      <input type="password" class="form-control"  id="pass" name="pass"> 
+      </div>    
+      </div>    
+      </div>
+     <div class="row"> 
+     <br>
+      <div class="col-lg-6"> 
+      <div class="form-group">
+      <label style="font-family:aleolight;font-size:14px;color:#000">Nombre del Programa</label> 
+       <select class="form-control" id="programa" name="programa" style="cursor:pointer;">
+            <option value="0">NA</option> 
+           <?php foreach ($this->programas as $datos) {?>
+          <option  value="<?php echo $datos['id']; ?>"><?php echo htmlentities(utf8_encode($datos['nombre']));?></option>
+          <?php }?> 
+       </select>
+      </div>    
+      </div> 
+      <div class="col-lg-6"> 
+      <div class="form-group">
+      <label style="font-family:aleolight;font-size:14px;color:#000">Rol</label> 
+      <select class="form-control" id="rol" name="rol" style="cursor:pointer;">
+          <?php foreach ($this->roles as $roles) {?>
+          <option  value="<?php echo $roles['id_rol'];?>"><?php echo $roles['nombre'];?></option> 
+           <?php }?> 
+       </select>
+      </div>    
+      </div> 
+      </div> 
+     
+</form> 
+</div>
+</div>    
+   <div class="row espacio">
+   <div class=" text-center">
+    <input type="button" id="agregar" value="Guardar"  class="btn btn-default" style="font-family:aleobold;font-size:18px;color:#1d9d74" /> 
+   </div>          
+   </div>  
+</div>

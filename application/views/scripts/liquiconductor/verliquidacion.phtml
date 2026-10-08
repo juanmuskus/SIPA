@@ -1,0 +1,91 @@
+<br> 
+<a href="/inicio/financiera">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;">
+        <span class=""></span> Inicio</button></a>
+<br>
+
+<div class="row  col-lg-12" style="margin-top: 10px;">
+    <h3 style="font-family:robotoblack;font-size:23px;color:#777" class="text-center">Listado de las liquidaciones de los Conductores</h3>
+    <h4 class="text-center" style="font-family:aleolight;font-size:16px;color:#000">Se muestra el estado Pagado, Trámite y cancelada las liquidaciones</h4>
+    <br>
+         <div class="tabla_datos">
+    <?php foreach ($this->liquidarconductor as $key=> $liquidarconductor){?>
+    <div class="panel panel-default item-tabla item-tabla-61">
+                      <div class="panel-body">  
+                      <table class="table">
+                      <tr>
+                      <td colspan="2" style="text-align: right">
+                   <!--   <a href="/liquiconductor/editarliquiconductor/id/<?php echo $liquidarconductor['id'];?>"  data-id="44"  data-tipo="1" class="btn btn-info btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:15px;color:#000;">Pagarle a Conductor</a>  -->      
+                      <!--Codigo de la validación de la liquidación del conductor -->
+                      <?php
+                       if(($liquidarconductor['pagado'])== 'Trámite'){?>
+                         <a href="/liquiconductor/editarliquiconductor/id/<?php echo $liquidarconductor['id'];?>"  data-id="44"  data-tipo="1" class="btn btn-info btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:15px;color:#000;">Pagarle a Conductor</a>      
+                         <?php } else { if(($liquidarconductor['pagado'])== 'Cancelada la Práctica'){?>
+                              <a href="/liquiconductor/editarliquiconductor/id/<?php echo $liquidarconductor['id'];?>"  data-id="44"  data-tipo="1" class="btn btn-info btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:15px;color:#000;">Cancelada la Práctica</a>
+                                  <?php } else {?>
+                                  <a href="#"  data-id="44"  data-tipo="1" class="btn btn-success btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:15px;color:#000;background-color:#dff0d8;"> Pagada</a>
+                                    <?php }?>    
+                                 <?php }?>
+                      </td>        
+                      </tr>    
+         
+                          <tr>
+                              <td>Codigo de la práctica</td>
+                              <td class="cod"><?php echo $liquidarconductor['cod_practica']['cod_practica']; ?></td>
+                          </tr>
+                          <tr>
+                              <td>Combustible</td>
+                              <td class="cal"><?php echo $liquidarconductor['combustible'];?></td>
+                          </tr>
+                           <tr>
+                              <td>Peajes</td>
+                              <td class="campo_o"><?php echo $liquidarconductor['peajes'];?></td>
+                          </tr>
+                           <tr>
+                              <td>Viaticos</td>
+                              <td class="campo_o"><?php echo $liquidarconductor['viaticos'];?></td>
+                          </tr>
+                           <tr>
+                              <td>Imprevisto</td>
+                              <td class="campo_o"><?php echo $liquidarconductor['imprevistos'];?></td>
+                          </tr>
+                           <tr>
+                              <td>Estado pago</td>
+                              <td class="campo_o"><?php echo $liquidarconductor['pagado'];?></td>
+                          </tr>
+                          <tr>
+                              <td>Fecha pago</td>
+                              <td class="campo_o"><?php echo $liquidarconductor['fecha_pago']->format('d/m/Y');?></td>
+                          </tr>
+                          <tr>
+                              <td>Legalizado</td>
+                              <td class="campo_o"><?php echo $liquidarconductor['legalizado'];?></td>
+                          </tr>
+                          <tr>
+                              <td>Fecha_legalizado</td>
+                              <td class="campo_o"><?php echo $liquidarconductor['fecha_legalizado']->format('d/m/Y');?></td>
+                          </tr>
+                          <tr>
+                              <td>Conductor</td>
+                              <td class="campo_p"><?php echo $liquidarconductor['id_conductor']['nombre'];?> <?php echo $liquidarconductor['id_conductor']['apellido'];?></td>
+                          </tr>
+                          <tr>
+                              <td>Vehiculo</td>
+                              <td class="campo_q"><?php echo $liquidarconductor['id_conductor']['nombre'];?></td>
+                          </tr>
+                          <tr>
+                              <td>Total</td>
+                              <td class="campo_r"><?php echo $this->total_liquiconductor[$key];?></td>
+                          </tr>
+                           <tr>
+                              <td>Observaciones</td>
+                              <td class="campo_r"><?php echo $liquidarconductor['observacion'];?></td>
+                          </tr>
+                         </table>
+                        </div>
+                          
+                    </div>
+                   <?php }?>  
+ 
+</div>    
+        </div> 

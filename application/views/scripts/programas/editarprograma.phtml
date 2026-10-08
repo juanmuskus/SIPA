@@ -1,0 +1,36 @@
+
+<div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;">
+<h3 class="" style="font-family:robotoblack;font-size:23px;color:#777"> Editar Programa</h3>     
+<br>
+<div class="panel panel-success">  
+<div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos del Programa</div>   
+<div class="panel-body">
+    <form id="pro">
+    <div class="row">    
+      <div class="col-lg-6">  
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:16px;color:#000">Nombre del Programa</label>           
+      <input type="text" class="form-control" value="<?php echo $this->programa[0]['nombre'];?>" id="programa" name="programa"> 
+      </div>    
+      </div> 
+       <div class="col-lg-6">  
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:16px;color:#000">Nombre de la Facultad</label>     
+      <select id="facultad" name="facultad" class="form-control" data-programa="<?php echo $this->programa[0]['cod_facultad']['id_facultad'];?>" style="cursor:pointer;">
+        <?php foreach ($this->facultades as $facultad) {?>  
+          <option  value="<?php echo $facultad['id_facultad'];?>"><?php echo $facultad['nombre'];?></option>
+         <?php }?> 
+        </select>
+      </div>    
+      </div>   
+ </div>    
+    </form>  
+</div>
+</div>    
+   <div class="row espacio">
+   <div class=" text-center">
+       <input type="hidden" id="id_programa" value="<?php echo $this->programa[0]['id_programa'];?>">  
+       <input type="button"  value="Guardar" id="editar" class="btn btn-default" style="font-family:aleobold;font-size:18px;color:#1d9d74" />   
+   </div>          
+   </div>  
+</div>

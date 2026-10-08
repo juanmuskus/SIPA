@@ -1,0 +1,105 @@
+<br>
+<br>
+<br>
+   <?php
+   if($this->rol == 1){?>
+   <a href="/inicio/admin">
+        <button type="button"  class="btn btn-primary">
+        <span class="glyphicon glyphicon-arrow-left"></span> Admin</button></a>
+         <br>
+         <br>
+        <a href="/inicio/departamento">
+        <button type="button"  class="btn btn-default">
+        <span class="glyphicon glyphicon-arrow-left"></span> Inicio</button></a>
+   <?php }else{ 
+   
+   if($this->rol == 2){?>
+        <a href="/practicas/listarpractica">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;width:100px;">
+        <span class=""></span> Atrás</button></a>         
+   <?php }?>
+   <?php }?> 
+    <br>
+     
+    <h2 class="text-center" style="font-family:robotoblack;font-size:28px;color:#777">LISTADO DE PROGRAMACIONES DE LAS PRÁCTICAS ACADÉMICAS</h2>
+    <br>
+    <div class="panel panel-success">  
+    <div class="panel-heading"><h4 class="lead text-center" style="font-family:robotoblack;font-size:22px;color:#777">Información Requerida Para la Edición de la Programación</h4></div>   
+    <div class="panel-body">
+    <div class="row">    
+      <div class="form-group">
+      <div class="col-lg-12 text-justify">    
+      <p class= "lead" style="font-family:aleolight;font-size:20px;color:#000">Para la edición de la programción de la práctica asociada,
+     a esta funcionalidad esta en listar practica, en el boton de editar práctica.
+      </p>       
+      </div>    
+      </div> 
+    </div>  
+    </div>
+    </div>
+    
+<div class="tabla_datos">
+                
+                      <?php foreach ($this->programacion as $programacion){?>
+                      <div class="panel panel-default item-tabla item-tabla-61">
+                      <div class="panel-body">  
+                      <table class="table">
+                    <!--    <tr>
+                            <td colspan="2" style="text-align: right">
+                            <a href="/programacion/editarprogramacion/id/<?php echo $practicas['cod_practica']; ?>" class="btn btn-success btn-xs editar-tabla-datos" data-id="61"  data-tipo="1">Editar Programación</a> 
+                                  
+                            </td>
+                        
+                          </tr> -->
+                    
+                        
+                           <tr>
+                              <td>Codigo Programación</td>
+                              <td class="cod"><?php echo $programacion['codigo_prog']; ?></td>
+                          </tr>
+                          <tr>
+                              <td>Numero de Días</td>
+                              <td class="cal"><?php echo $programacion['num_dias']; ?></td>
+                          </tr>
+                           <tr>
+                              <td>Recorrido de la Práctica</td>
+                              <td class="campo_o"><?php echo $programacion['recorrido']?></td>
+                          </tr>
+                           <tr>
+                              <td>Fecha de Salida</td>
+                              <td class="campo_o"><?php echo $programacion['fecha_salida']->format('Y-m-d')?></td>
+                          </tr>
+                           <tr>
+                              <td>Fecha de Llegada</td>
+                              <td class="campo_o"><?php echo ($programacion['fecha_llegada']== null)? "ND" : $programacion['fecha_llegada']->format('Y-m-d')?></td>
+                          </tr>
+                           <tr>
+                              <td>Recorrido Departamental</td>
+                              <td class="campo_o"><?php echo $programacion['departamental']?></td>
+                          </tr>
+                          <tr>
+                              <td>Lugar del Encuentro</td>
+                              <td class="campo_o"><?php echo $programacion['lugar_encuentro']?></td>
+                          </tr>
+                          <tr>
+                              <td>Días Pernoctados</td>
+                              <td class="campo_o"><?php echo $programacion['dias_pernoctados']?></td>
+                          </tr>
+                          <tr>
+                              <td>Observaciones</td>
+                              <td class="campo_o"><?php echo $programacion['observaciones']?></td>
+                          </tr>
+                          <tr>
+                              <td>Codigo de la Práctica</td>
+                              <td class="campo_n"><?php echo $programacion['cod_practica']['cod_practica']?></td>
+                          </tr>
+                        
+                         </table>
+                        </div>
+                          
+                    </div>
+                   <?php }?>  
+ 
+</div>
+                          
+               

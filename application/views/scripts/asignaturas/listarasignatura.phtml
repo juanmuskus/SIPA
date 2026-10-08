@@ -1,0 +1,44 @@
+<div class="row col-sm-4 col-md-6 col-lg-9" style="margin-top: 10px;">
+    <h3>Listado de las asignaturas</h3>
+    <br>
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+              
+                <th>Nombre de la asignatura</th>
+                <th>Codigo de la asignatura</th>
+                <th>Grupo</th>
+                <th>Nombre del Programa</th>
+                <th>Nombre de la facultad</th>
+                <th>Sede</th>
+                <th>Acciones</th>
+                
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+            
+                <th>Nombre de la asignatura</th>
+                <th>Codigo de la asignatura</th>
+                <th>Grupo</th>
+                <th>Nombre del Programa</th>
+                <th>Nombre de la facultad</th>
+                <th>Sede</th>
+                <th>Acciones</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <?php foreach($this->asignatura as $asignatura) {?>  
+            <tr>
+                <td><?php echo $asignatura['nombre'];?></td>
+                <td><?php echo $asignatura['codigo'];?></td>
+                <td><?php echo $asignatura['grupo'];?></td>
+                <td><?php echo $asignatura['cod_programa']['nombre'];?></td>
+                <td><?php echo $asignatura['id_facultad']['nombre'];?></td>
+                <td><?php echo $asignatura['id_sede']['nombre'];?></td>
+                <td><a href="/asignaturas/editarasignatura/id/<?php echo $asignatura['cod_asignatura'] ; ?>"><i class="fa fa-pencil-square-o" style="font-size:18px;color:#337ab7;cursor:pointer;"></i></a>&nbsp;<a class="eliminar_asignatura" data-asignatura="<?php echo $asignatura['cod_asignatura'];?>" href="#"><i class="fa fa-trash" style="font-size:18px;color:#d9534f;cursor:pointer;"></i> </a></td>
+            </tr> 
+            <?php }?>
+        </tbody>
+    </table>    
+        </div> 

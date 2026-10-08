@@ -1,0 +1,84 @@
+<br>
+<a href="/usuarios/listarusuario">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;">
+        Atrás <span class="glyphicon glyphicon-arrow-right"></span></button></a>
+<br>
+<div class="container col-sm-4 col-md-6 col-lg-9" style="margin-top: 20px;">
+<h3 class="text-center" style="font-family:robotoblack;font-size:25px;color:#777"> Editar Usuario</h3>     
+<br>
+<div class="panel panel-success">  
+<div class="panel-heading" style="font-family:robotoblack;font-size:18px;color:#777"> Datos del Usuario</div>   
+<div class="panel-body">
+<form id="usu" method="post">
+<div class="row">
+      <div class="col-lg-6"> 
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Nombres</label>           
+      <input type="text" class="form-control" value="<?php echo $this->usuarios[0]['nombre'];?>" id="nom" name="nom"> 
+      </div>    
+      </div>
+      <div class="col-lg-6"> 
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Apellidos</label>           
+      <input type="text" class="form-control" value="<?php echo $this->usuarios[0]['apellidos']; ?>" id="ape" name="ape"> 
+      </div>    
+      </div>
+ </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-6">  
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Identificación</label>           
+      <input type="text" class="form-control" value="<?php echo $this->usuarios[0]['identificacion']; ?>" id="ide" name="ide"> 
+      </div>    
+      </div> 
+      <div class="col-lg-6">    
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Correo</label>           
+      <input type="text" class="form-control" value="<?php echo $this->usuarios[0]['correo']; ?>" id="correo" name="correo"> 
+      </div>    
+      </div>   
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-6">   
+      <div class="form-group">
+      <label for="input" class="" style="font-family:aleolight;font-size:14px;color:#000">Usuario</label>           
+      <input type="text" class="form-control" value="<?php echo $this->usuarios[0]['usuario']; ?>" id="usuario" name="usuario"> 
+      </div>    
+      </div> 
+      <div class="col-lg-6"> 
+      <div class="form-group">
+      <label style="font-family:aleolight;font-size:14px;color:#000">Nombre del Programa</label> 
+      <select class="form-control" id="programa" name="programa" data-programa="<?php echo $this->usuarios[0]['cod_progra_power'];?>" style="cursor:pointer;">
+      <option value="0">NA</option> 
+      <?php foreach ($this->programas as $datos) {?>
+      <option  value="<?php echo $datos['id']; ?>"><?php echo htmlentities(utf8_encode($datos['nombre']));?></option>
+      <?php }?>  
+       </select>
+      </div>    
+      </div>   
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-6"> 
+      <div class="form-group">
+      <label style="font-family:aleolight;font-size:14px;color:#000">Rol</label> 
+      <select class="form-control" id="rol" name="rol" data-rol="<?php echo $this->usuarios[0]['id_rol']['id_rol']; ?>" style="cursor:pointer;">
+      <?php foreach ($this->roles as $roles) {?>
+      <option  value="<?php echo $roles['id_rol'];?>"><?php echo $roles['nombre'];?></option> 
+      <?php }?> 
+      </select>
+      </div>    
+      </div> 
+      </div> 
+      </form> 
+</div>
+</div>    
+   <div class="row espacio">
+   <div class=" text-center">
+    <input type="hidden" id="id_usuario" value="<?php echo $this->usuarios[0]['id_usuario']; ?>">    
+    <input type="button" id="editar" value="Actualizar"  class="btn btn-default"  style="font-family:aleobold;font-size:18px;color:#1d9d74"/> 
+   </div>          
+   </div>  
+</div>

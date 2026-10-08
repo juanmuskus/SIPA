@@ -1,0 +1,152 @@
+<br>
+<br>
+<br>
+<br>
+   <?php
+   if($this->rol == 1){?>
+   <a href="/inicio/admin">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;width:100px;">
+        <span class=""></span> Admin</button></a>
+         <br>
+         <br>
+        <a href="/inicio/departamento">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;width:100px;">
+        <span class=""></span> Inicio</button></a>
+   <?php }else{ 
+   
+   if($this->rol == 2){?>
+    <!--    <a href="/inicio/departamento">
+        <button type="button"  class="btn btn-default" style="font-family:aleolight;font-size:16px;color:#000;background-color:#dff0d8;width:100px;">
+        <span></span> Inicio</button></a>   -->       
+   <?php }?>
+   <?php }?> 
+    <br>
+    <h2 class="text-center" style="font-family:robotoblack;font-size:26px;color:#777">LISTADO DE PRÁCTICAS ACADÉMICAS</h2>
+<div class="tabla_datos">
+                
+                      <?php foreach ($this->practicas as $practicas){?>
+                      <div class="panel panel-default item-tabla item-tabla-61">
+                      <div class="panel-body">  
+                      <table class="table">
+                       
+                           <tr>
+                            <td colspan="2" style="text-align: right">
+                                
+                                 <?php
+                                 if($this->rol == 1){?>
+                                  <a href="/practicas/editarpractica/id/<?php echo $practicas['cod_practica']; ?>" class="btn btn-default btn-xs editar-tabla-datos" data-id="61"  data-tipo="1" style="font-family:aleolight;font-size:15px;color:#000;">Editar</a> 
+                              <!--    <a href="#"  data-id="44"  data-tipo="1" class="btn btn-danger btn-xs imprimir-tabla-datos" style="font-family:aleolight;font-size:12px;color:#000;">Autorizar Reprogramación</a> -->
+                            <!--      <a href="#"  data-id="61"  data-tipo="1" class="btn btn-danger btn-xs clonar-tabla-datos">Clonar</a> -->
+                             <!--     <a href="#"  data-id="44"  data-tipo="1" class="btn btn-default btn-xs imprimir-tabla-datos">Imprimir</a>  -->
+                                 
+                              <!--    <a href="#"  data-id="44"  data-tipo="1" class="btn btn-warning btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:12px;color:#000;"> Ver Liquidación</a> -->
+                                <?php
+                                  if(count($practicas['liquidarpractica'])== 0){?>
+                            <!--      <a href="#"  data-id="61"  data-tipo="1" class="btn btn-danger btn-xs clonar-tabla-datos">Clonar</a> -->
+                             <!--     <a href="#"  data-id="44"  data-tipo="1" class="btn btn-default btn-xs imprimir-tabla-datos">Imprimir</a>  -->
+                                   <a href="/liquidarpracticas/liquidarpractica/cod_practica/<?php echo $practicas['cod_practica']; ?>"  data-id="44"  data-tipo="1" class="btn btn-success btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:15px;color:#000;background-color:#dff0d8;">Liquidar</a> 
+                                  
+                                  <?php } else {?>
+                                  <a href="/liquidarpracticas/listarliquidar/cod_practica/<?php echo $practicas['cod_practica']; ?>"  data-id="44"  data-tipo="1" class="btn btn-info btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:15px;color:#000;"> Ver Liquidación</a>
+                                     
+                                 <?php }?> 
+                                  
+                                   
+                                  <?php  } else{      
+                                 if($this->rol == 2){?>
+                                  <a href="/practicas/editarpractica/id/<?php echo $practicas['cod_practica']; ?>" class="btn btn-default btn-xs editar-tabla-datos" data-id="61"  data-tipo="1" style="font-family:aleolight;font-size:13px;color:#000;">Editar Práctica</a>
+                                  <a href="/programacion/listarprogramacion" class="btn btn-info btn-xs editarprogramacion-tabla-datos" data-id="61"  data-tipo="1" style="font-family:aleolight;font-size:13px;color:#000;">Listar Programación</a>
+                              <!--    <a href="#" class="btn btn-danger btn-xs editar-tabla-datos" data-id="61"  data-tipo="1" style="font-family:aleolight;font-size:13px;color:#000;">Solicitar Reprogramación</a> -->
+                                  <a href="/practicas/verliquidacion/cod_practica/<?php echo $practicas['cod_practica']; ?>"  data-id="44"  data-tipo="1" class="btn btn-info btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:13px;color:#000;background-color:#dff0d8;"> Ver Liquidación</a> 
+                                  <!-- Codigo de la validación de mostrar la practica liquidada -->
+                               <!--   <?php
+                                 if(($liquidarpractica['estado'])== 'Tramite'){?>
+                                 <a href="#"  data-id="44"  data-tipo="1" class="btn btn-info btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:15px;color:#000;">Sin Liquidar</a>      
+                                  <?php } else { if(($liquidarpractica['estado'])== 'Cancelada la Práctica'){?>
+                                  <a href="#"  data-id="44"  data-tipo="1" class="btn btn-info btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:15px;color:#000;">Sin Liquidar</a>
+                                  <?php } else {?>
+                                  <a href="/practicas/verliquidacion/cod_practica/<?php echo $practicas['cod_practica']; ?>"  data-id="44"  data-tipo="1" class="btn btn-success btn-xs liquidar-tabla-datos" style="font-family:aleolight;font-size:15px;color:#000;background-color:#dff0d8;"> Ver Liquidación</a>
+                                    <?php }?>    
+                                 <?php }?>  -->
+                                  
+                                 <?php }?>   
+                                 <?php }?> 
+                                  <!--implemento el rol 4 -->
+                                 
+                              </td>
+                        
+                          </tr>
+                        
+                           <tr>
+                              <td>Codigo Práctica</td>
+                              <td class="cod"><?php echo $practicas['cod_practica']; ?></td>
+                          </tr>
+                          <tr>
+                              <td>Calendario Académico</td>
+                              <td class="cal"><?php echo $practicas['id_calendario']['id']; ?></td>
+                          </tr>
+                           <tr>
+                              <td>Nombre del docente solicitante</td>
+                              <td class="campo_o"><?php echo $this->docentes[0]['ape'].' '.$this->docentes[0]['nom'];?></td>
+                          </tr>
+                           <tr>
+                              <td>Facultad</td>
+                              <td class="campo_o"><?php echo $practicas['facultad']?></td>
+                          </tr>
+                           <tr>
+                              <td>Departamento</td>
+                              <td class="campo_o"><?php echo $practicas['departamento']?></td>
+                          </tr>
+                           <tr>
+                              <td>Programa</td>
+                              <td class="campo_o"><?php echo $practicas['programa']?></td>
+                          </tr>
+                          <tr>
+                              <td>Asignatura</td>
+                              <td class="campo_o"><?php echo $practicas['asignatura']?></td>
+                          </tr>
+                          <tr>
+                              <td>Semestre</td>
+                              <td class="campo_o"><?php echo $practicas['semestre']?></td>
+                          </tr>
+                          <tr>
+                              <td>Grupo</td>
+                              <td class="campo_o"><?php echo $practicas['grupo']?></td>
+                          </tr>
+                          <tr>
+                              <td>Número Estudiantes</td>
+                              <td class="campo_n"><?php echo $practicas['num_estudiantes']?></td>
+                          </tr>
+                           <tr>
+                              <td>Nombre Práctica</td>
+                              <td class="campo_p"><?php echo $practicas['nombre']?></td>
+                          </tr>
+                          <tr>
+                              <td>Objetivos </td>
+                              <td class="campo_a"><?php echo $practicas['objetivo']?></td>
+                          </tr>
+                          <tr>
+                              <td>Justificación </td>
+                              <td class="campo_b"><?php echo $practicas['justificacion']?></td>
+                          </tr>
+                          <tr>
+                              <td>Actividades Docente</td>
+                              <td class="campo_c"><?php echo $practicas['actividad_doc']?></td>
+                          </tr>
+                          <tr>
+                              <td>Actividades Estudiantes</td>
+                              <td class="campo_d"><?php echo $practicas['actividad_est']?></td>
+                          </tr>
+                          <tr>
+                              <td>Tipo Práctica</td>
+                              <td class="campo_e"><?php echo $practicas['tipo_practica']?></td>
+                          </tr>
+                         </table>
+                        </div>
+                          
+                    </div>
+                   <?php }?>  
+ 
+</div>
+                          
+               
