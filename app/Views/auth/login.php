@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIPA - Autenticación</title>
-    <link rel="shortcut icon" href="<?= $asset('/img/uni.png') ?>">
+    <link rel="shortcut icon" href="<?= $asset('/img/profile.png') ?>">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,8 +125,7 @@
 
     <!-- Top header matching Figure 1 -->
     <header class="login-topbar">
-        <img src="<?= $asset('/img/uni.png') ?>" alt="Universidad de Córdoba">
-        <h1>Sistemas Prácticas Académicas Unicordoba</h1>
+    <h1>Sistemas Información Prácticas Académicas</h1>
     </header>
 
     <main class="login-wrapper">

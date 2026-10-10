@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $e($title ?? 'SIPA - Módulo Financiero') ?></title>
-    <link rel="shortcut icon" href="<?= $asset('/img/uni.png') ?>">
+    <link rel="shortcut icon" href="<?= $asset('/img/profile.png') ?>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +29,7 @@
     <nav class="navbar navbar-expand-lg navbar-sipa fixed-top">
         <div class="container-fluid px-4">
             <a class="navbar-brand d-flex align-items-center gap-2" href="<?= $url('/inicio/financiera') ?>">
-                <img src="<?= $asset('/img/uni.png') ?>" alt="Unicordoba" class="sipa-logo">
-                <span class="sipa-brand-title">Sistemas Prácticas Académicas Unicordoba</span>
+                <span class="sipa-brand-title">Sistemas Información Prácticas Académicas</span>
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarFinContent">
