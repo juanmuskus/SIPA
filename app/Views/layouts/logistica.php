@@ -37,6 +37,7 @@
     <nav class="navbar navbar-expand-lg navbar-sipa fixed-top">
         <div class="container-fluid px-4">
             <a class="navbar-brand d-flex align-items-center gap-2" href="<?= $url('/inicio/logistica') ?>">
+                <img class="sipa-logo" src="<?= $asset('/img/logo_.svg') ?>" alt="Logo SIPA">
                 <span class="sipa-brand-title">Sistemas Información Prácticas Académicas</span>
             </a>
             

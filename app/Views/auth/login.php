@@ -125,7 +125,8 @@
 
     <!-- Top header matching Figure 1 -->
     <header class="login-topbar">
-    <h1>Sistemas Información Prácticas Académicas</h1>
+        <img src="<?= $asset('/img/logo_.svg') ?>" alt="Logo SIPA">
+        <h1>Sistemas Información Prácticas Académicas</h1>
     </header>
 
     <main class="login-wrapper">
