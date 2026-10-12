@@ -1,0 +1,69 @@
+SIPA - Diagrama de arquitectura de despliegue
+=============================================
+
+Vista de ejecucion
+------------------
+
+ +------------------------+
+ | Usuario / navegador    |
+ +-----------+------------+
+             | HTTP/HTTPS
+             | HTTPS requiere TLS configurado en el servidor o proxy
+             v
+ +-------------------------------+
+ | Servidor web Apache           |
+ | PHP habilitado                 |
+ | mod_rewrite + AllowOverride    |
+ +---------------+---------------+
+                 | DocumentRoot: public/ (recomendado)
+                 | o raiz del proyecto (alternativa)
+                 v
+       +-----------------------+
+       | Entrada segun         |
+       | DocumentRoot          |
+       +-----------+-----------+
+                   |
+          +--------+---------+
+          |                  |
+          v                  v
+ +-------------------+  +----------------------+
+ | public/           |  | Raiz del proyecto    |
+ | index.php         |  | index.php            |
+ | .htaccess         |  | -> public/index.php  |
+ | CSS/JS/imagenes   |  | .htaccess            |
+ +--------+----------+  +----------+-----------+
+          |                        |
+          +-----------+------------+
+                      | carga
+                      v
+          +-------------------------------+
+          | app/autoload.php              |
+          | Aplicacion PHP                |
+          | app/Core + app/Modules        |
+          +---------------+---------------+
+                          |
+                          | PDO; destinos mediante variables de entorno
+                          |
+       +------------------+----------------------+------------------+
+       |                  |                      |
+ +-----v----------+ +-----v----------+ +---------v--------+
+ | BD practicas   | | BD campus      | | BD kactus       |
+ | MySQL / SQLsrv | | MySQL / SQLsrv | | MySQL / SQLsrv  |
+ +----------------+ +----------------+ +-----------------+
+
+Configuracion y limites de despliegue
+-------------------------------------
+- app/Config/database.php define las conexiones. Para cada NOMBRE (PRACTICAS,
+  CAMPUS o KACTUS), configurar SIPA_DB_NOMBRE_DRIVER, SIPA_DB_NOMBRE_HOST,
+  SIPA_DB_NOMBRE_PORT, SIPA_DB_NOMBRE_NAME, SIPA_DB_NOMBRE_USER,
+  SIPA_DB_NOMBRE_PASSWORD y SIPA_DB_NOMBRE_CHARSET.
+- SIPA_DEBUG=1 habilita la visualizacion de errores; mantenerlo desactivado
+  en produccion. Los errores se registran usando el mecanismo de PHP.
+- Si el DocumentRoot apunta a la raiz del repositorio, .htaccess dirige las
+  rutas dinamicas a index.php y bloquea el acceso web a codigo y directorios
+  internos. public/.htaccess enruta las solicitudes que llegan a public/.
+- Preferir public/ como DocumentRoot para reducir la superficie expuesta.
+  No publicar credenciales ni archivos de configuracion con secretos.
+- El repositorio no define contenedores ni un pipeline de CI/CD; este diagrama
+  describe el despliegue PHP/Apache y las conexiones externas esperadas, no un
+  aprovisionamiento automatizado.

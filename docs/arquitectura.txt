@@ -1,0 +1,78 @@
+SIPA - Diagrama de arquitectura
+===============================
+
+Flujo principal de la aplicacion actual
+---------------------------------------
+
+ +------------------------+
+ | Usuario / navegador    |
+ | Admin                  |
+ | Departamento            |
+ | Logistica               |
+ | Financiera              |
+ +-----------+------------+
+             | HTTP (GET/POST)
+             v
+ +------------------------+
+ | Apache + mod_rewrite   |
+ | .htaccess              |
+ +-----------+------------+
+             | Solicitudes no estaticas
+             v
+ +------------------------+
+ | Punto de entrada       |
+ | index.php              |
+ | -> public/index.php    |
+ +-----------+------------+
+             | carga
+             v
+ +------------------------+
+ | app/autoload.php       |
+ | App\Core\App           |
+ | Request + Router       |
+ +-----------+------------+
+             | resuelve ruta
+             v
+ +------------------------+
+ | Controladores          |
+ |------------------------|
+ | Auth                   |
+ | Admin                  |
+ | Practicas              |
+ | Logistica              |
+ | Financiera             |
+ +-----+--------------+---+
+       |              |
+       |              +--------------------------+
+       |                                         |
+       v                                         v
+ +----------------------+             +----------------------+
+ | Core de aplicacion   |             | app/Views            |
+ | Session              |             | Vistas PHP y layouts |
+ | Database (PDO)       |             +----------+-----------+
+ | View                 |                        |
+ +----------+-----------+                        | HTML
+            |                                    v
+            |                           +----------------------+
+            |                           | Navegador            |
+            |                           | CSS / JavaScript /   |
+            |                           | imagenes en public/  |
+            |                           +----------------------+
+            |
+            | conexiones configuradas en app/Config/database.php
+            | variables SIPA_DB_<NOMBRE>_*
+            v
+ +----------------------+  +----------------------+  +----------------------+
+ | Base de datos        |  | Base de datos        |  | Base de datos        |
+ | practicas            |  | campus               |  | kactus               |
+ +----------------------+  +----------------------+  +----------------------+
+
+Notas
+-----
+- La autenticacion usa sesiones PHP; las rutas y controladores aplican
+  restricciones por rol.
+- Database crea conexiones PDO bajo demanda. Los nombres practicas, campus y
+  kactus son las conexiones configuradas; cada modulo puede usar la conexion
+  predeterminada o indicar otra.
+- application/ y SIPA_Zend/ contienen una implementacion Zend Framework
+  heredada. El punto de entrada actual carga app/ y no inicia ese flujo Zend.
